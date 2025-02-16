@@ -1,0 +1,308 @@
+@font-face {
+    font-family: 'e-Ukraine';
+    src: url('fonts/e-Ukraine-Light.otf') format('opentype');
+    font-weight: 300;
+  }
+
+  @font-face {
+    font-family: 'e-Ukraine';
+    src: url('fonts/e-Ukraine-Regular.otf') format('opentype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'e-Ukraine';
+    src: url('fonts/e-Ukraine-Medium.ttf') format('truetype');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'e-Ukraine';
+    src: url('fonts/e-Ukraine-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'e-Ukraine', Arial, sans-serif;
+    background: linear-gradient(180deg, #007f7f, #89d8d3, #b0e0e6);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 100vh;
+  }
+
+    .container {
+    position: relative;
+    width: 390px;
+    height: 850px;
+    background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
+    animation: gradientAnimation 10s infinite alternate ease-in-out;
+    overflow: hidden;
+    }
+
+    .container {
+    position: relative;
+    width: 390px;
+    height: 850px;
+    background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
+    animation: gradientAnimation 10s infinite alternate ease-in-out;
+    overflow: hidden;
+    }
+
+    @keyframes gradientAnimation {
+    0% {
+    background: radial-gradient(circle, rgba(255, 250, 205, 0.8) 30%, rgba(173, 216, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
+    }
+    25% {
+    background: radial-gradient(circle, rgba(224, 244, 205, 0.8) 30%, rgba(176, 224, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
+    }
+    50% {
+    background: radial-gradient(circle, rgba(216, 255, 216, 0.8) 30%, rgba(160, 216, 230, 0.8) 60%, rgba(208, 191, 216, 0.8) 100%);
+    }
+    75% {
+    background: radial-gradient(circle, rgba(255, 250, 205, 0.8) 30%, rgba(176, 224, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
+    }
+    100% {
+    background: radial-gradient(circle, rgba(255, 250, 205, 0.8) 30%, rgba(173, 216, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
+    }
+    }
+
+  .document {
+    position: absolute;
+    top: 143px;
+    left: 32px;
+    right: 32px;
+    bottom: 223px;
+    background: linear-gradient(180deg, #c0f7f4, #d9fdd3);
+    border-radius: 24px;
+    padding: 20px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .back {
+    transform: rotateY(180deg);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'e-Ukraine', sans-serif;
+    margin-bottom: 10px;
+  }
+
+    .photo {
+    position: relative;
+    width: 135px; /* Ширина рамки */
+    height: 180px; /* Висота рамки */
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden; /* Обрізає зайве */
+    margin-bottom: 16px;
+    background-color: #ccc; /* Фон на випадок, якщо картинка менша */
+    }
+
+    .photo img {
+    width: 100%; /* Масштабує картинку за шириною */
+    height: 101%; /* Масштабує картинку за висотою */
+    object-fit: cover; /* Або "contain", якщо не хочеш обрізання */
+    border-radius: 15px; /* Закруглення */
+    }
+
+  .info {
+    font-size: 13px;
+    margin-left: 160px;
+    position: absolute;
+    top: 80px;
+    font-family: 'e-Ukraine', sans-serif;
+    font-weight: 400;
+  }
+
+  .moving-bar {
+    width: 100%;
+    background: linear-gradient(90deg, #a3ed96, #8fcfce);
+    position: absolute;
+    bottom: 111px;
+    left: 0;
+    right: 0;
+    padding: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .moving-text-container {
+    display: flex;
+    width: max-content;
+    animation: moveLeft 20s linear infinite;
+  }
+
+  .moving-text {
+    white-space: nowrap;
+    font-size: 13px;
+    padding-right: 6px;
+    font-family: 'e-Ukraine', sans-serif;
+    font-weight: 500;
+  }
+
+  @keyframes moveLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    bottom: 195px;
+    width: 100%;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .dot.active {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+  }
+
+  .navbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-family: 'e-Ukraine', sans-serif;
+    font-weight: 500;
+  }
+
+  .menu {
+    position: absolute;
+    width: 32px;
+    right: 26px;
+    top: 769px;
+    z-index: 10;
+  }
+
+  .menu1 {
+    position: absolute;
+    width: 32px;
+    right: 117px;
+    top: 772px;
+    z-index: 10;
+  }
+
+  .menu2 {
+    position: absolute;
+    width: 32px;
+    right: 220px;
+    top: 773px;
+    z-index: 10;
+  }
+
+  .menu3 {
+    position: absolute;
+    width: 32px;
+    right: 324px;
+    top: 773px;
+    z-index: 10;
+  }
+
+  .flipped .document {
+    transform: rotateY(180deg);
+  }
+
+  .flipped .back {
+    transform: rotateY(0deg);
+  }
+
+  .timer {
+    position: relative;
+    top: 15px;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 20px;
+  }
+
+  .qr-code img {
+    width: 240px;
+    position: relative;
+    bottom: -13px;
+  }
+
+  .buttons {
+    top: -14px;
+display: flex;
+justify-content: space-evenly; /* Рівномірно розподіляємо кнопки */
+gap: 70px; /* Відстань між кнопками */
+margin-top: 90px;
+position: relative; /* Для того, щоб позиціювати кнопки абсолютно в середині контейнера */
+}
+
+.button-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.button {
+width: 48px; /* Розмір кнопки */
+height: 48px; /* Розмір кнопки */
+border-radius: 50%;
+background-color: #ccc; /* Початковий сірий колір */
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+border: none;
+transition: background-color 0.3s ease; /* Плавний перехід для кольору */
+margin: 0; /* Забороняємо зміщення кнопок при натисканні */
+position: relative; /* Це дозволяє кнопкам залишатися на своєму місці */
+}
+
+.button:hover {
+background-color: #4a4949; /* Колір при наведенні */
+}
+
+.button.active,
+.button:active {
+background-color: #191919; /* Чорний колір при натисканні */
+}
+
+.button svg {
+width: 20px; /* Зменшений розмір іконки */
+height: 20px; /* Зменшений розмір іконки */
+}
+
+.button-text {
+font-size: 12px;
+text-align: center;
+margin-top: 5px; /* Відстань між кнопкою та текстом */
+color: black;
+}

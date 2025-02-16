@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Дія">
+  <link rel="apple-touch-icon" href="DiiaLogo.png">
+  <title>Passport UI Clone</title>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="document">
+      <div class="header">Паспорт громадянина<br> України</div>
+      <div class="photo">
+        <img src="vadim.jpg" alt="Фото">
+      </div>
+      <div class="info">
+        <p>Дата <br>народження:<br>15.07.2008</p>
+        <p>Номер: <br>2009596294</p>
+      </div>
+      <div class="moving-bar">
+        <div class="moving-text-container">
+          <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+          <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+          <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+          <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+        </div>
+      </div>
+      <div style="position: absolute; bottom: -3px; left: 20px; font-size: 22px;">
+        <p>Чепорнюк<br>Роман<br>Сергійович</p>
+      </div>
+      <div style="position: absolute; bottom: 24px; right: 20px; background: black; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: flex-start; justify-content: center;">...</div>
+    </div>
+    <div class="document back">
+      <div class="timer">Код діятиме ще: <span id="timer">03:00</span> хв</div>
+      <img id="qr-code" src="" alt="QR Code">
+<img id="barcode-code" src="" alt="Barcode" style="display: none;">
+
+
+      <div class="buttons">
+        <div class="button-container">
+          <button class="button active" id="qr-button">
+            <!-- Іконка QR-коду -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M16 17v-1h-3v-3h3v2h2v2h-1v2h-2v2h-2v-3h2v-1h1zm5 4h-4v-2h2v-2h2v4zM3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zM6 6h2v2H6V6zm0 10h2v2H6v-2zM16 6h2v2h-2V6z"></path> </g> </g>
+            </svg>
+          </button>
+          <span class="button-text">QR-код</span>
+        </div>
+        
+        <div class="button-container">
+          <button class="button" id="barcode-button">
+            <!-- Іконка штрих-коду -->
+            <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>bar-code</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="drop" fill="#ffffff" transform="translate(42.666667, 85.333333)"> <path d="M42.6666667,1.42108547e-14 L42.6666667,341.333333 L7.10542736e-15,341.333333 L7.10542736e-15,1.42108547e-14 L42.6666667,1.42108547e-14 Z M128,1.42108547e-14 L128,341.333333 L85.3333333,341.333333 L85.3333333,1.42108547e-14 L128,1.42108547e-14 Z M213.333333,1.42108547e-14 L213.333333,341.333333 L170.666667,341.333333 L170.666667,1.42108547e-14 L213.333333,1.42108547e-14 Z M426.666667,1.42108547e-14 L426.666667,341.333333 L384,341.333333 L384,1.42108547e-14 L426.666667,1.42108547e-14 Z M277.333333,1.42108547e-14 L277.333333,341.333333 L256,341.333333 L256,1.42108547e-14 L277.333333,1.42108547e-14 Z M341.333333,1.42108547e-14 L341.333333,341.333333 L320,341.333333 L320,1.42108547e-14 L341.333333,1.42108547e-14 Z" id="Combined-Shape"> </path> </g> </g> </g>
+            </svg>
+          </button>
+          <span class="button-text">Штрих-код</span>
+        </div>
+      </div>
+
+
+      
+      
+
+    </div>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+
+
+    <div class="container">
+      <div class="document">
+        <div class="header">Паспорт громадянина<br> України</div>
+        <div class="photo">
+          <img src="vadim.jpg" alt="Фото">
+        </div>
+        <div class="info">
+          <p>Дата <br>народження:<br>15.07.2006</p>
+          <p>Номер: <br>2009596294</p>
+        </div>
+        <div class="moving-bar">
+          <div class="moving-text-container">
+            <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+            <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+            <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+            <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
+          </div>
+        </div>
+        <div style="position: absolute; bottom: -3px; left: 20px; font-size: 22px;">
+          <p>Чепорнюк<br>Роман<br>Сергійович</p>
+        </div>
+        <div style="position: absolute; bottom: 24px; right: 20px; background: black; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: flex-start; justify-content: center;">...</div>
+      </div>
+      <div class="document back">
+        <div class="timer">Код діятиме ще: <span id="timer">03:00</span> хв</div>
+        <div class="qr-code">
+          <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(randomText)}" alt="QR Code">
+        </div>
+  
+  
+        <div class="buttons">
+          <div class="button-container">
+            <button class="button active" id="qr-button">
+              <!-- Іконка QR-коду -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M16 17v-1h-3v-3h3v2h2v2h-1v2h-2v2h-2v-3h2v-1h1zm5 4h-4v-2h2v-2h2v4zM3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zM6 6h2v2H6V6zm0 10h2v2H6v-2zM16 6h2v2h-2V6z"></path> </g> </g>
+              </svg>
+            </button>
+            <span class="button-text">QR-код</span>
+          </div>
+          
+          <div class="button-container">
+            <button class="button" id="barcode-button">
+              <!-- Іконка штрих-коду -->
+              <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>bar-code</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="drop" fill="#ffffff" transform="translate(42.666667, 85.333333)"> <path d="M42.6666667,1.42108547e-14 L42.6666667,341.333333 L7.10542736e-15,341.333333 L7.10542736e-15,1.42108547e-14 L42.6666667,1.42108547e-14 Z M128,1.42108547e-14 L128,341.333333 L85.3333333,341.333333 L85.3333333,1.42108547e-14 L128,1.42108547e-14 Z M213.333333,1.42108547e-14 L213.333333,341.333333 L170.666667,341.333333 L170.666667,1.42108547e-14 L213.333333,1.42108547e-14 Z M426.666667,1.42108547e-14 L426.666667,341.333333 L384,341.333333 L384,1.42108547e-14 L426.666667,1.42108547e-14 Z M277.333333,1.42108547e-14 L277.333333,341.333333 L256,341.333333 L256,1.42108547e-14 L277.333333,1.42108547e-14 Z M341.333333,1.42108547e-14 L341.333333,341.333333 L320,341.333333 L320,1.42108547e-14 L341.333333,1.42108547e-14 Z" id="Combined-Shape"> </path> </g> </g> </g>
+              </svg>
+            </button>
+            <span class="button-text">Штрих-код</span>
+          </div>
+        </div>
+  
+  
+        
+        
+  
+      </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+
+
+    
+    <div class="navbar">
+      <div>Стрічка</div>
+      <div>Документи</div>
+      <div>Сервіси</div>
+      <div>Меню</div>
+    </div>
+    <img class="menu" src="menu.svg" alt="Меню"/>
+    <img class="menu1" src="servis.svg" alt="Сервіси"/>
+    <img class="menu2" src="dokument.svg" alt="Документи"/>
+    <img class="menu3" src="strichka.svg" alt="Стрічка"/>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
