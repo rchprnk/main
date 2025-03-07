@@ -22,6 +22,7 @@
   font-weight: 700;
 }
 
+
 html, body {
   overflow: hidden;
   height: 100%;
@@ -31,11 +32,15 @@ html, body {
   position: fixed;
 }
 
+
+
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'e-Ukraine', Arial, sans-serif;
-  background: linear-gradient(180deg, #007f7f, #89d8d3, #b0e0e6);
+  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
   justify-content: center;
   align-items: end;
@@ -75,7 +80,7 @@ body {
   left: 32px;
   right: 32px;
   bottom: 223px;
-  background: linear-gradient(180deg, #c0f7f4, #d9fdd3);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
   border-radius: 24px;
   padding: 20px;
   box-sizing: border-box;
