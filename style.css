@@ -311,3 +311,17 @@ text-align: center;
 margin-top: 5px; /* Відстань між кнопкою та текстом */
 color: black;
 }
+
+
+
+
+
+.signPane{
+  margin-top:calc(var(--rp)*1px*0.02);
+  display:flex
+}
+
+.photo4{
+width: 100px;
+height: 100px;
+}
