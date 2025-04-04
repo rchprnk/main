@@ -96,26 +96,34 @@ if ('serviceWorker' in navigator) {
 }
 
 function changeImage(menu) {
-  const image = document.getElementById("imageDisplay");
+  const image1 = document.getElementById("imageDisplay1");
+  const image2 = document.getElementById("imageDisplay2");
 
   // Зміна джерела зображення залежно від натиснутої вкладки
   switch(menu) {
     case 'menu':
-      image.src = 'serwis.jpg';  // Зображення для меню
-      image.style.display = 'block';  // Переконуємося, що зображення видно
+      image1.src = 'serwis.jpg';  // Перше зображення для меню
+      image2.src = 'foon.jpg';  // Друге зображення для меню
+      image1.style.display = 'block';  // Переконуємося, що зображення видно
+      image2.style.display = 'block';  // Переконуємося, що друге зображення видно
       break;
     case 'menu1':
-      image.src = 'menuu.jpg'; // Зображення для сервісів
-      image.style.display = 'block';  // Переконуємося, що зображення видно
+      image1.src = 'menuu.jpg'; // Перше зображення для сервісів
+      image2.src = 'foon.jpg'; // Друге зображення для сервісів
+      image1.style.display = 'block';  // Переконуємося, що зображення видно
+      image2.style.display = 'block';  // Переконуємося, що друге зображення видно
       break;
     case 'menu3':
-      image.src = 'striczka.jpg'; // Зображення для стрічки
-      image.style.display = 'block';  // Переконуємося, що зображення видно
+      image1.src = 'striczka.jpg'; // Перше зображення для стрічки
+      image2.src = 'foon.jpg'; // Друге зображення для стрічки
+      image1.style.display = 'block';  // Переконуємося, що зображення видно
+      image2.style.display = 'block';  // Переконуємося, що друге зображення видно
       break;
     case 'menu2':
-      image.src = '';  // Зображення не змінюється для "Документів"
-      image.style.display = 'none'; // Приховуємо зображення при натисканні на "Документи"
+      image1.src = '';  // Зображення не змінюється для "Документів"
+      image2.src = '';  // Зображення не змінюється для "Документів"
+      image1.style.display = 'none'; // Приховуємо зображення
+      image2.style.display = 'none'; // Приховуємо зображення
       break;
   }
 }
-
