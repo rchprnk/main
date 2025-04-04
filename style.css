@@ -107,23 +107,23 @@ body {
 
   .photo {
   position: relative;
-  width: 135px; /* Ширина рамки */
-  height: 180px; /* Висота рамки */
+  width: 135px; 
+  height: 180px; 
   top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  overflow: hidden; /* Обрізає зайве */
+  overflow: hidden; 
   margin-bottom: 16px;
-  background-color: #ccc; /* Фон на випадок, якщо картинка менша */
+  background-color: #ccc; 
   }
 
   .photo img {
-  width: 100%; /* Масштабує картинку за шириною */
-  height: 101%; /* Масштабує картинку за висотою */
-  object-fit: cover; /* Або "contain", якщо не хочеш обрізання */
-  border-radius: 15px; /* Закруглення */
+  width: 100%; 
+  height: 101%; 
+  object-fit: cover; 
+  border-radius: 15px; 
   }
 
 .info {
@@ -204,6 +204,13 @@ body {
   font-size: 12px;
   font-family: 'e-Ukraine', sans-serif;
   font-weight: 500;
+  z-index: 10;
+}
+
+.menu, .menu1, .menu2, .menu3 {
+  position: absolute;
+  width: 32px;
+  z-index: 10; /* Всі іконки меню будуть поверх */
 }
 
 .menu {
@@ -263,10 +270,10 @@ body {
 .buttons {
   top: -14px;
 display: flex;
-justify-content: space-evenly; /* Рівномірно розподіляємо кнопки */
-gap: 70px; /* Відстань між кнопками */
+justify-content: space-evenly; 
+gap: 70px; 
 margin-top: 90px;
-position: relative; /* Для того, щоб позиціювати кнопки абсолютно в середині контейнера */
+position: relative; 
 }
 
 .button-container {
@@ -276,39 +283,39 @@ align-items: center;
 }
 
 .button {
-width: 48px; /* Розмір кнопки */
-height: 48px; /* Розмір кнопки */
+width: 48px; 
+height: 48px; 
 border-radius: 50%;
-background-color: #ccc; /* Початковий сірий колір */
+background-color: #ccc; 
 color: white;
 display: flex;
 justify-content: center;
 align-items: center;
 cursor: pointer;
 border: none;
-transition: background-color 0.3s ease; /* Плавний перехід для кольору */
-margin: 0; /* Забороняємо зміщення кнопок при натисканні */
-position: relative; /* Це дозволяє кнопкам залишатися на своєму місці */
+transition: background-color 0.3s ease; 
+margin: 0;
+position: relative; 
 }
 
 .button:hover {
-background-color: #4a4949; /* Колір при наведенні */
+background-color: #4a4949; 
 }
 
 .button.active,
 .button:active {
-background-color: #191919; /* Чорний колір при натисканні */
+background-color: #191919; 
 }
 
 .button svg {
-width: 20px; /* Зменшений розмір іконки */
-height: 20px; /* Зменшений розмір іконки */
+width: 20px; 
+height: 20px; 
 }
 
 .button-text {
 font-size: 12px;
 text-align: center;
-margin-top: 5px; /* Відстань між кнопкою та текстом */
+margin-top: 5px;
 color: black;
 }
 
@@ -324,4 +331,16 @@ color: black;
 .photo4{
 width: 100px;
 height: 100px;
+}
+
+
+#imageDisplay {
+  z-index: 1;  
+  left: -1px;
+  top: 60px;
+  max-width: 800px; 
+  width: 101%; 
+  height: 88%; 
+  margin-top: -48px; 
+  position: relative; 
 }

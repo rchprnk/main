@@ -1,4 +1,4 @@
-let countdown = 180; // Таймер у секундах (3 хвилини)
+let countdown = 180; 
   
     // Функція для оновлення таймера
     function updateTimer() {
@@ -50,7 +50,7 @@ function generateBarcode() {
     barcodeElement.src = `https://barcode.tec-it.com/barcode.ashx?data=${encodeURIComponent(randomCode)}&code=Code128&dpi=300&scale=4&barwidth=1.7&height=40&fontname=Arial&fontsize=26&includetext=True&textsize=26`;
 }
 
-// Додана функція toggleDocument
+
 function toggleDocument() {
     document.querySelector('.container').classList.toggle('flipped');
 }
@@ -95,5 +95,27 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+function changeImage(menu) {
+  const image = document.getElementById("imageDisplay");
 
+  // Зміна джерела зображення залежно від натиснутої вкладки
+  switch(menu) {
+    case 'menu':
+      image.src = 'serwis.jpg';  // Зображення для меню
+      image.style.display = 'block';  // Переконуємося, що зображення видно
+      break;
+    case 'menu1':
+      image.src = 'menuu.jpg'; // Зображення для сервісів
+      image.style.display = 'block';  // Переконуємося, що зображення видно
+      break;
+    case 'menu3':
+      image.src = 'striczka.jpg'; // Зображення для стрічки
+      image.style.display = 'block';  // Переконуємося, що зображення видно
+      break;
+    case 'menu2':
+      image.src = '';  // Зображення не змінюється для "Документів"
+      image.style.display = 'none'; // Приховуємо зображення при натисканні на "Документи"
+      break;
+  }
+}
 
