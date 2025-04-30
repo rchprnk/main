@@ -95,40 +95,49 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-function changeImage(menu) {
+document.addEventListener('DOMContentLoaded', function () {
   const image1 = document.getElementById("imageDisplay1");
   const image2 = document.getElementById("imageDisplay2");
 
-  // Скидаємо всі іконки на звичайні
-  document.getElementById("icon-menu").src = "menu.jpg";
-  document.getElementById("icon-menu1").src = "servis.jpg";
-  document.getElementById("icon-menu2").src = "dokument.jpg";
-  document.getElementById("icon-menu3").src = "strichka.jpg";
+  function changeImage(menu) {
+    // Скидаємо всі іконки на звичайні
+    document.getElementById("icon-menu").src = "menu.jpg";
+    document.getElementById("icon-menu1").src = "servis.jpg";
+    document.getElementById("icon-menu2").src = "dokument.jpg";
+    document.getElementById("icon-menu3").src = "strichka.jpg";
 
-  // Встановлюємо активну іконку і зображення
-  switch(menu) {
-    case 'menu':
-      image1.src = 'serwis.jpg';
-      image2.src = 'foon.jpg';
-      document.getElementById("icon-menu").src = "menu-active.jpg";
-      break;
-    case 'menu1':
-      image1.src = 'menuu.jpg';
-      image2.src = 'foon.jpg';
-      document.getElementById("icon-menu1").src = "servis-active.jpg";
-      break;
-    case 'menu3':
-      image1.src = 'striczka.jpg';
-      image2.src = 'foon.jpg';
-      document.getElementById("icon-menu3").src = "strichka-active.jpg";
-      break;
-    case 'menu2':
-      image1.src = '';
-      image2.src = '';
-      document.getElementById("icon-menu2").src = "dokument-active.jpg";
-      return;
+    // Показуємо блоки за замовчуванням
+    image1.style.display = 'block';
+    image2.style.display = 'block';
+
+    // Встановлюємо активну іконку і зображення
+    switch(menu) {
+      case 'menu':
+        image1.src = "serwis.jpg";
+        image2.src = "foon.jpg";
+        document.getElementById("icon-menu").src = "menu-active.jpg";
+        break;
+      case 'menu1':
+        image1.src = "menuu.jpg";
+        image2.src = "foon.jpg";
+        document.getElementById("icon-menu1").src = "servis-active.jpg";
+        break;
+      case 'menu3':
+        image1.src = "striczka.jpg";
+        image2.src = "foon.jpg";
+        document.getElementById("icon-menu3").src = "strichka-active.jpg";
+        break;
+      case 'menu2':
+        image1.style.display = 'none';
+        image2.style.display = 'none';
+        document.getElementById("icon-menu2").src = "dokument-active.jpg";
+        break;
+    }
   }
 
-  image1.style.display = 'block';
-  image2.style.display = 'block';
-}
+  // Додаємо події до кнопок (заміни на твої реальні елементи)
+  document.getElementById("icon-menu").addEventListener("click", () => changeImage('menu'));
+  document.getElementById("icon-menu1").addEventListener("click", () => changeImage('menu1'));
+  document.getElementById("icon-menu2").addEventListener("click", () => changeImage('menu2'));
+  document.getElementById("icon-menu3").addEventListener("click", () => changeImage('menu3'));
+});
