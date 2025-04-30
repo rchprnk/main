@@ -78,19 +78,25 @@
       
 
       <div class="navbar">
-        <div>Стрічка</div>
-        <div>Документи</div>
-        <div>Сервіси</div>
-        <div>Меню</div>
+        <div onclick="changeImage('menu3')">
+          <img src="strichka.jpg" id="icon-menu3">
+          Стрічка
+        </div>
+        <div onclick="changeImage('menu2')">
+          <img src="dokument-active.jpg" id="icon-menu2">
+          Документи
+        </div>
+        <div onclick="changeImage('menu1')">
+          <img src="servis.jpg" id="icon-menu1">
+          Сервіси
+        </div>
+        <div onclick="changeImage('menu')">
+          <img src="menu.jpg" id="icon-menu">
+          Меню
+        </div>
       </div>
       
-      
-      <img class="menu" src="menu.svg" alt="Меню" onclick="changeImage('menu')"/>
-      <img class="menu1" src="servis.svg" alt="Сервіси" onclick="changeImage('menu1')"/>
-      <img class="menu2" src="dokument.svg" alt="Документи" onclick="changeImage('menu2')"/>
-      <img class="menu3" src="strichka.svg" alt="Стрічка" onclick="changeImage('menu3')"/>
-      
-      <!-- Тут будуть два зображення -->
+      <!-- Тут два зображення -->
       <img id="imageDisplay1" class="image"/>
       <img id="imageDisplay2" class="image"/>
         
