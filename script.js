@@ -228,3 +228,13 @@ document.addEventListener('gestureend', (e) => {
 document.addEventListener('touchmove', (e) => {
   e.preventDefault();
 }, { passive: false });
+
+// Після завантаження сторінки, обчислюємо правильну висоту
+window.addEventListener('load', function() {
+  document.body.style.height = window.innerHeight + 'px'; // задаємо висоту тіла в залежності від висоти вікна
+});
+
+// Перераховуємо висоту при зміні розміру вікна (наприклад, при повороті екрану)
+window.addEventListener('resize', function() {
+  document.body.style.height = window.innerHeight + 'px'; // адаптивна висота
+});
