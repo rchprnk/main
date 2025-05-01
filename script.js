@@ -185,3 +185,9 @@ function changeName() {
   togglePopupMenu();
 }
 
+if (screen.orientation && screen.orientation.lock) {
+  screen.orientation.lock('portrait').catch(function(error) {
+    console.log("Orientation lock failed:", error);
+  });
+}
+
