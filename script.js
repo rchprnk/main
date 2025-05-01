@@ -237,3 +237,10 @@ window.addEventListener('load', function() {
 window.addEventListener('resize', function() {
   document.body.style.height = '103.5vh'; // При зміні розміру вікна знову встановлюємо 80% висоти
 });
+
+window.addEventListener('orientationchange', function() {
+  if (window.orientation === 90 || window.orientation === -90) {
+    // Це ландшафтна орієнтація, показуємо попередження
+    alert('Перемкніть пристрій у портретний режим');
+  }
+});
