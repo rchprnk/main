@@ -55,6 +55,20 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
+/* Портретна орієнтація */
+@media only screen and (orientation: portrait) {
+  body {
+    background-color: lightblue; /* Приклад стилю для портретної орієнтації */
+  }
+}
+
+/* Ландшафтна орієнтація */
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightgreen; /* Приклад стилю для ландшафтної орієнтації */
+  }
+}
+
   .container {
   position: relative;
   width: 100rem;
