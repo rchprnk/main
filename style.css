@@ -43,6 +43,7 @@ html, body {
 }
 
 body {
+  height: calc(100vh + env(safe-area-inset-top));
   font-family: 'e-Ukraine', Arial, sans-serif;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
