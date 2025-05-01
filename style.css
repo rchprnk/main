@@ -43,20 +43,19 @@ html, body {
 }
 
 body {
-  height: calc(100vh + env(safe-area-inset-top));
+  height: 100vh;
   font-family: 'e-Ukraine', Arial, sans-serif;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
 
-  /* Safe area для чолки та нижньої панелі */
-  padding-top: env(safe-area-inset-top);
+  /* Забираємо top inset — він зміщує все вниз */
+  /* padding-top: env(safe-area-inset-top); */
+  
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
-
-  height: 100vh;
 }
 
   .container {
