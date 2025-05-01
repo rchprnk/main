@@ -57,20 +57,26 @@ body {
 #overlay {
   position: fixed;
   top: 0;
-  left: -15;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: black;
-  display: none; /* Спочатку приховано */
-  z-index: 9999; /* Щоб перекрити весь контент */
+  display: none; /* Приховано за замовчуванням */
+  z-index: 9999;
+
+  /* Центрування тексту */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: white;
   font-size: 24px;
-  text-align: center;
-  line-height: 100vh; /* Вирівнювання тексту по вертикалі */
   font-family: Arial, sans-serif;
   font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
-
 
   .container {
   position: relative;
