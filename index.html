@@ -15,11 +15,12 @@
       <div class="document">
         <div class="header">Паспорт громадянина<br> України</div>
         <div class="photo">
-          <img src="roma.jpg" alt="Фото">
+          <img src="roma.jpg" id="userPhoto" ...>
         </div>
         <div class="info">
-          <p>Дата <br>народження:<br>15.07.2006</p>
-          <p>Номер: <br>2009596294</p>
+          <p>Дата <br>народження:</p>
+          <p class=info1 id="userDate">15.07.2006</p>
+          <p class=info2 >Номер: <br>2009596294</p>
           <div class="signPane"></div>
           <img class="photo4" src="./pidpys.jpg" alt="Підпис">
         </div>
@@ -31,10 +32,20 @@
             <div class="moving-text">Документ оновлено о 13:09 | 03.02.2025 • </div>
           </div>
         </div>
-        <div style="position: absolute; bottom: -3px; left: 20px; font-size: 22px;">
+        <div class="nameMain" id="userName">
           <p>Чепорнюк<br>Роман<br>Сергійович</p>
         </div> 
-        <div style="position: absolute; bottom: 24px; right: 20px; background: black; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: flex-start; justify-content: center;">...</div>
+        <button class="threeButtons" data-no-flip onclick="togglePopupMenu()" id="menuButton">• • •</button>
+        
+        <!-- МЕНЮ -->
+        <div  id="popupMenu" class="hidden" 
+        style="position: absolute; bottom: 60px; right: 20px; background: white; border: 1px solid #ccc; padding: 8px; border-radius: 8px;">
+          <div data-no-flip class="menu-item" onclick="changeName()">✏️ Змінити ПІБ</div>
+          <div data-no-flip class="menu-item" onclick="changeDate()">📅 Змінити дату</div>
+          <div data-no-flip class="menu-item" onclick="changePhoto()">📸 Змінити фото</div>
+          <div data-no-flip class="menu-item close" onclick="togglePopupMenu()">❌ Закрити</div>
+        </div>
+        
       </div>
       <div class="document back">
         <div class="timer">Код діятиме ще: <span id="timer">03:00</span> хв</div>
@@ -101,5 +112,6 @@
       <img id="imageDisplay2" class="image"/>
         
         <script src="script.js"></script>
+
 </body>
 </html>
