@@ -58,7 +58,7 @@ body {
   .container {
   position: relative;
   width: 100rem;
-  height: 53rem;
+  height: 53.5rem;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   animation: gradientAnimation 10s infinite alternate ease-in-out;
   overflow: hidden;
