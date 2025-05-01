@@ -198,7 +198,33 @@ document.addEventListener('touchstart', function(e) {
   if (e.touches.length > 1) e.preventDefault(); // два пальці
 }, { passive: false });
 
-document.addEventListener('touchmove', function (e) {
+// Заборона подвійного кліку (double tap)
+document.addEventListener('dblclick', (e) => {
   e.preventDefault();
 }, { passive: false });
 
+// Заборона контекстного меню (правий клік)
+document.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+});
+
+// Заборона вибору тексту
+document.addEventListener('selectstart', (e) => {
+  e.preventDefault();
+});
+
+// Блокування будь-яких жестів
+document.addEventListener('gesturestart', (e) => {
+  e.preventDefault();
+});
+document.addEventListener('gesturechange', (e) => {
+  e.preventDefault();
+});
+document.addEventListener('gestureend', (e) => {
+  e.preventDefault();
+});
+
+// Блокування свайпів і зуму
+document.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+}, { passive: false });
