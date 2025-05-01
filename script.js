@@ -197,3 +197,7 @@ document.addEventListener('copy', event => event.preventDefault());
 document.addEventListener('touchstart', function(e) {
   if (e.touches.length > 1) e.preventDefault(); // два пальці
 }, { passive: false });
+
+document.addEventListener('touchmove', function (e) {
+  e.preventDefault();
+}, { passive: false });

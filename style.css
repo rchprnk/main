@@ -32,9 +32,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden; /* головне! */
+  position: fixed;  /* додатково фіксує */
   width: 100%;
-  overflow: hidden;
-  position: relative;
 
   /* Заборона виділення і довгого тапа */
   user-select: none;
