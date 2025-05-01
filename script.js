@@ -191,3 +191,9 @@ if (screen.orientation && screen.orientation.lock) {
   });
 }
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('selectstart', event => event.preventDefault());
+document.addEventListener('copy', event => event.preventDefault());
+document.addEventListener('touchstart', function(e) {
+  if (e.touches.length > 1) e.preventDefault(); // два пальці
+}, { passive: false });
