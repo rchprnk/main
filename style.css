@@ -232,8 +232,8 @@ body {
 }
 
 .dot.active {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   background: #fff;
 }
 
