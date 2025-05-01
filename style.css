@@ -54,20 +54,23 @@ body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
-
-/* Портретна орієнтація */
-@media only screen and (orientation: portrait) {
-  body {
-    background-color: lightblue; /* Приклад стилю для портретної орієнтації */
-  }
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: none; /* Спочатку приховано */
+  z-index: 9999; /* Щоб перекрити весь контент */
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 100vh; /* Вирівнювання тексту по вертикалі */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
-/* Ландшафтна орієнтація */
-@media only screen and (orientation: landscape) {
-  body {
-    background-color: lightgreen; /* Приклад стилю для ландшафтної орієнтації */
-  }
-}
 
   .container {
   position: relative;

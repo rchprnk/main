@@ -238,9 +238,26 @@ window.addEventListener('resize', function() {
   document.body.style.height = '103.5vh'; // При зміні розміру вікна знову встановлюємо 80% висоти
 });
 
+// Додаємо елемент для чорного екрану
+const overlay = document.createElement('div');
+overlay.id = 'overlay';
+overlay.textContent = 'Перемкніть пристрій у портретний режим';
+document.body.appendChild(overlay);
+
+// Слухач події для зміни орієнтації
 window.addEventListener('orientationchange', function() {
   if (window.orientation === 90 || window.orientation === -90) {
-    // Це ландшафтна орієнтація, показуємо попередження
-    alert('Перемкніть пристрій у портретний режим');
+    // Якщо орієнтація ландшафтна, показуємо чорний екран
+    overlay.style.display = 'flex';
+  } else {
+    // Якщо орієнтація портретна, приховуємо чорний екран
+    overlay.style.display = 'none';
   }
 });
+
+// Спочатку перевіряємо орієнтацію при завантаженні сторінки
+if (window.orientation === 90 || window.orientation === -90) {
+  overlay.style.display = 'flex';
+} else {
+  overlay.style.display = 'none';
+}
