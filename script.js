@@ -231,9 +231,9 @@ document.addEventListener('touchmove', (e) => {
 
 
 window.addEventListener('load', function() {
-  document.body.style.height = '102.5vh'; // Встановлюємо висоту 80% від висоти вікна
+  document.body.style.height = '103vh'; // Встановлюємо висоту 80% від висоти вікна
 });
 
 window.addEventListener('resize', function() {
-  document.body.style.height = '102.5vh'; // При зміні розміру вікна знову встановлюємо 80% висоти
+  document.body.style.height = '103vh'; // При зміні розміру вікна знову встановлюємо 80% висоти
 });
