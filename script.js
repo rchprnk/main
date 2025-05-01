@@ -230,12 +230,12 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 
-  window.addEventListener('load', function() {
-    // Коригуємо висоту body
-    document.body.style.height = window.innerHeight + 'px';
-  });
+// Після завантаження сторінки, коригуємо висоту
+window.addEventListener('load', function() {
+  document.body.style.height = window.innerHeight + 'px'; // Встановлюємо точну висоту
+});
 
-  window.addEventListener('resize', function() {
-    // Адаптивна висота при зміні розміру екрану
-    document.body.style.height = window.innerHeight + 'px';
-  });
+// Якщо змінюється розмір вікна (наприклад, при зміні орієнтації)
+window.addEventListener('resize', function() {
+  document.body.style.height = window.innerHeight + 'px'; // Знову коригуємо висоту
+});
