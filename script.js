@@ -230,12 +230,10 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 
-// Після завантаження сторінки, коригуємо висоту
 window.addEventListener('load', function() {
-  document.body.style.height = window.innerHeight + 'px'; // Встановлюємо точну висоту
+  document.body.style.height = '102.5vh'; // Встановлюємо висоту 80% від висоти вікна
 });
 
-// Якщо змінюється розмір вікна (наприклад, при зміні орієнтації)
 window.addEventListener('resize', function() {
-  document.body.style.height = window.innerHeight + 'px'; // Знову коригуємо висоту
+  document.body.style.height = '102.5vh'; // При зміні розміру вікна знову встановлюємо 80% висоти
 });
