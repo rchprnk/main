@@ -29,33 +29,33 @@
 }
 
 html, body {
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
-  position: fixed;
-}
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 
-body {
-  
-  background: #000;
-  margin: 0;
-  padding-top: env(safe-area-inset-top);
-  
-  
-  user-select: none;        /* блокує виділення */
+  /* Заборона виділення і довгого тапа */
+  user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
-  margin: 0;
-  padding: 0;
+  -webkit-touch-callout: none;
+}
+
+body {
   font-family: 'e-Ukraine', Arial, sans-serif;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   height: 100vh;
+  box-sizing: border-box;
 }
 
   .container {
