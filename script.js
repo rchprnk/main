@@ -261,3 +261,32 @@ if (window.orientation === 90 || window.orientation === -90) {
 } else {
   overlay.style.display = 'none';
 }
+
+function updateTime() {
+  const now = new Date();
+
+  // Формат часу
+  const time = now.toLocaleTimeString("uk-UA", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  // Формат дати
+  const date = now.toLocaleDateString("uk-UA", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
+
+  // Текст
+  const text = `Документ оновлено о ${time} | ${date} •`;
+
+  // Заміна у всіх блоках
+  document.getElementById("update-time").textContent = text;
+  document.getElementById("update-time2").textContent = text;
+  document.getElementById("update-time3").textContent = text;
+  document.getElementById("update-time4").textContent = text;
+}
+
+// Викликається при завантаженні сторінки
+window.onload = updateTime;
