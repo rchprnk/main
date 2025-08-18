@@ -262,31 +262,27 @@ if (window.orientation === 90 || window.orientation === -90) {
   overlay.style.display = 'none';
 }
 
-function updateTime() {
-  const now = new Date();
+// Оновити рядок "Документ оновлено ..." тільки текстом, без змін стилів/HTML
+window.addEventListener("load", function updateMovingTextOnce() {
+  try {
+    const now = new Date();
 
-  // Формат часу
-  const time = now.toLocaleTimeString("uk-UA", {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
+    const time = now.toLocaleTimeString("uk-UA", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
 
-  // Формат дати
-  const date = now.toLocaleDateString("uk-UA", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric"
-  });
+    const date = now.toLocaleDateString("uk-UA", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
 
-  // Текст
-  const text = `Документ оновлено о ${time} | ${date} •`;
+    const text = `Документ оновлено о ${time} | ${date} • `; // пробіл після • збережено
 
-  // Заміна у всіх блоках
-  document.getElementById("update-time").textContent = text;
-  document.getElementById("update-time2").textContent = text;
-  document.getElementById("update-time3").textContent = text;
-  document.getElementById("update-time4").textContent = text;
-}
-
-// Викликається при завантаженні сторінки
-window.onload = updateTime;
+    document.querySelectorAll(".moving-text-container .moving-text")
+      .forEach(el => { el.textContent = text; });
+  } catch (_) {
+    // тихо ігноруємо — стилі/розмітка не змінюються
+  }
+});
