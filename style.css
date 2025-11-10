@@ -470,14 +470,12 @@ body {
 
   #imageDisplay2 {
     top: -20px;            /* трошки вгору */
-    max-width: 800px;
     width: 100%;
     position: absolute;
   }
 
   #imageDisplay1 {
     top: 55px;            /* трошки вгору */
-    max-width: 800px;
     width: 100%;
     position: relative;
   }
