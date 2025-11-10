@@ -469,10 +469,10 @@ body {
   }
 
   #imageDisplay2 {
-    top: -850px;            /* трошки вгору */
+    top: 10px;            /* трошки вгору */
     max-width: 800px;
-    width: 200%;
-    position: relative;
+    width: 100%;
+    position: absolute;
   }
 
   #imageDisplay1 {
