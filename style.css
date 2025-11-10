@@ -469,14 +469,14 @@ body {
   }
 
   #imageDisplay2 {
-    top: -810px;            /* трошки вгору */
+    top: -830px;            /* трошки вгору */
     max-width: 800px;
     width: 150%;
     position: relative;
   }
 
   #imageDisplay1 {
-    top: 60px;            /* трошки вгору */
+    top: 57px;            /* трошки вгору */
     max-width: 800px;
     width: 100%;
     position: relative;
