@@ -89,10 +89,10 @@ body {
 
 .document {
   position: absolute;
-  top: 124px;
+  top: 140px;
   left: 32px;
   right: 32px;
-  bottom: 250px;
+  bottom: 230px;
   background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
   border-radius: 24px;
   padding: 20px;
@@ -392,8 +392,32 @@ body {
   and (device-height: 932px) 
   and (-webkit-device-pixel-ratio: 3) {
 
+    @font-face {
+      font-family: 'e-Ukraine';
+      src: url('fonts/e-Ukraine-Light.otf') format('opentype');
+      font-weight: 300;
+    }
+    
+    @font-face {
+      font-family: 'e-Ukraine';
+      src: url('fonts/e-Ukraine-Regular.otf') format('opentype');
+      font-weight: 400;
+    }
+    
+    @font-face {
+      font-family: 'e-Ukraine';
+      src: url('fonts/e-Ukraine-Medium.ttf') format('truetype');
+      font-weight: 500;
+    }
+    
+    @font-face {
+      font-family: 'e-Ukraine';
+      src: url('fonts/e-Ukraine-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
   .container {
-    height: 58rem; 
+    height: 93%; 
   }
 
   .document {
@@ -401,8 +425,8 @@ body {
   }
 
   .photo {
-    width: 155px; 
-    height: 220px;
+    width: 152px; 
+    height: 208px;
   }
 
   .photo img {
@@ -421,7 +445,7 @@ body {
   }
 
   .moving-bar{
-    top: 380px;
+    top: 365px;
     width: 366px;  
     height: 21px;  
   }
@@ -432,7 +456,7 @@ body {
   }
 
   .dots{
-    bottom: 210px;
+    bottom: 195px;
   }
 
   .nameMain {
