@@ -469,8 +469,8 @@ body {
   }
 
   #imageDisplay2 {
-    top: -234px;            /* трошки вгору */
-    width: 100%;
+    top: -20px;            /* трошки вгору */
+    width: 120%;
     position: absolute;
   }
 
