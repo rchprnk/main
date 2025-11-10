@@ -477,7 +477,7 @@ body {
   #imageDisplay1 {
     top: 55px;            /* трошки вгору */
     width: 100%;
-    position: relative;
+    position: absolute;
   }
 
 }
