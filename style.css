@@ -35,25 +35,21 @@ html, body {
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
-
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
   touch-action: manipulation;
+  font-family: 'e-Ukraine', Arial, sans-serif;
 }
 
 body {
   height: 103.5vh;
-  font-family: 'e-Ukraine', Arial, sans-serif;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
+
 #overlay {
   position: fixed;
   top: 0;
@@ -61,14 +57,10 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: black;
-  display: none; /* Приховано за замовчуванням */
+  display: none;
   z-index: 9999;
-
-  /* Центрування тексту */
-  display: flex;
   justify-content: center;
   align-items: center;
-
   color: white;
   font-size: 24px;
   font-family: Arial, sans-serif;
@@ -78,40 +70,30 @@ body {
   box-sizing: border-box;
 }
 
-  .container {
+.container {
   position: relative;
   width: 100rem;
   height: 53.5rem;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   animation: gradientAnimation 10s infinite alternate ease-in-out;
   overflow: hidden;
-  }
+}
 
-  @keyframes gradientAnimation {
-  0% {
-  background: radial-gradient(circle, rgba(255, 250, 205, 0.8) 30%, rgba(173, 216, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
-  }
-  25% {
-  background: radial-gradient(circle, rgba(224, 244, 205, 0.8) 30%, rgba(176, 224, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
-  }
-  50% {
-  background: radial-gradient(circle, rgba(216, 255, 216, 0.8) 30%, rgba(160, 216, 230, 0.8) 60%, rgba(208, 191, 216, 0.8) 100%);
-  }
-  75% {
-  background: radial-gradient(circle, rgba(255, 250, 205, 0.8) 30%, rgba(176, 224, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
-  }
-  100% {
-  background: radial-gradient(circle, rgba(255, 250, 205, 0.8) 30%, rgba(173, 216, 230, 0.8) 60%, rgba(216, 191, 216, 0.8) 100%);
-  }
-  }
+@keyframes gradientAnimation {
+  0% { background: radial-gradient(circle, rgba(255,250,205,0.8) 30%, rgba(173,216,230,0.8) 60%, rgba(216,191,216,0.8) 100%); }
+  25% { background: radial-gradient(circle, rgba(224,244,205,0.8) 30%, rgba(176,224,230,0.8) 60%, rgba(216,191,216,0.8) 100%); }
+  50% { background: radial-gradient(circle, rgba(216,255,216,0.8) 30%, rgba(160,216,230,0.8) 60%, rgba(208,191,216,0.8) 100%); }
+  75% { background: radial-gradient(circle, rgba(255,250,205,0.8) 30%, rgba(176,224,230,0.8) 60%, rgba(216,191,216,0.8) 100%); }
+  100% { background: radial-gradient(circle, rgba(255,250,205,0.8) 30%, rgba(173,216,230,0.8) 60%, rgba(216,191,216,0.8) 100%); }
+}
 
 .document {
   position: absolute;
-  top: 143px;
+  top: 124px;
   left: 32px;
   right: 32px;
-  bottom: 223px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  bottom: 250px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
   border-radius: 24px;
   padding: 20px;
   box-sizing: border-box;
@@ -132,30 +114,28 @@ body {
 .header {
   font-size: 25px;
   font-weight: 500;
-  font-family: 'e-Ukraine', sans-serif;
   margin-bottom: 10px;
 }
 
-  .photo {
+.photo {
   position: relative;
-  width: 135px; 
-  height: 180px; 
-  top: 0px;
+  width: 135px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  overflow: hidden; 
+  overflow: hidden;
   margin-bottom: 16px;
-  background-color: #ccc; 
-  }
+  background-color: #ccc;
+}
 
-  .photo img {
-  width: 100%; 
-  height: 101%; 
-  object-fit: cover; 
-  border-radius: 15px; 
-  }
+.photo img {
+  width: 100%;
+  height: 101%;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
 .info {
   line-height: 1.5;
@@ -163,25 +143,18 @@ body {
   margin-left: 160px;
   position: absolute;
   top: 80px;
-  font-family: 'e-Ukraine', sans-serif;
   font-weight: 400;
 }
 
-.info1{
-  position: relative;
-  top: -12px;
-}
-.info2{
-  position: relative;
-  top: -12px;
-}
+.info1, .info2 { position: relative; top: -12px; }
 
-.nameMain{
+.nameMain {
   position: relative;
   bottom: -97px;
   left: -1px;
   font-size: 22px;
 }
+
 .threeButtons{
   position: absolute;
   bottom: 24px;
@@ -227,7 +200,6 @@ body {
   white-space: nowrap;
   font-size: 13px;
   padding-right: 6px;
-  font-family: 'e-Ukraine', sans-serif;
   font-weight: 500;
 }
 
@@ -235,8 +207,6 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-
-
 
 .dots {
   display: flex;
@@ -247,187 +217,72 @@ body {
   width: 100%;
 }
 
-.dot {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-}
+.dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+.dot.active { width: 6px; height: 6px; background: #fff; }
 
-.dot.active {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-}
+.flipped .document { transform: rotateY(180deg); }
+.flipped .back { transform: rotateY(0deg); }
 
-.navbar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: black;
-  height: 90px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: white;
-  font-size: 12px;
-  font-family: 'e-Ukraine', sans-serif;
-  font-weight: 500;
-  z-index: 10;
-}
+.timer { position: relative; top: 15px; font-size: 13px; color: #999; margin-bottom: 20px; }
 
-.menu, .menu1, .menu2, .menu3 {
-  position: absolute;
-  width: 32px;
-  z-index: 10; /* Всі іконки меню будуть поверх */
-}
-
-.menu {
-  position: absolute;
-  width: 32px;
-  right: 26px;
-  top: 769px;
-  z-index: 10;
-}
-
-.menu1 {
-  position: absolute;
-  width: 32px;
-  right: 117px;
-  top: 772px;
-  z-index: 10;
-}
-
-.menu2 {
-  position: absolute;
-  width: 32px;
-  right: 220px;
-  top: 773px;
-  z-index: 10;
-}
-
-.menu3 {
-  position: absolute;
-  width: 32px;
-  right: 324px;
-  top: 773px;
-  z-index: 10;
-}
-
-.flipped .document {
-  transform: rotateY(180deg);
-}
-
-.flipped .back {
-  transform: rotateY(0deg);
-}
-
-.timer {
-  position: relative;
-  top: 15px;
-  font-size: 13px;
-  color: #999;
-  margin-bottom: 20px;
-}
-
-.qr-code img {
-  width: 240px;
-  position: relative;
-  bottom: -13px;
-}
+.qr-code img, .barcode img { width: 240px; position: relative; bottom: -13px; }
 
 .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 70px;
+  margin-top: 90px;
+  position: relative;
   top: -14px;
-display: flex;
-justify-content: space-evenly; 
-gap: 70px; 
-margin-top: 90px;
-position: relative; 
 }
 
 .button-container {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button {
-width: 48px; 
-height: 48px; 
-border-radius: 50%;
-background-color: #ccc; 
-color: white;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
-border: none;
-transition: background-color 0.3s ease; 
-margin: 0;
-position: relative; 
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin: 0;
+  position: relative;
 }
 
-.button:hover {
-background-color: #4a4949; 
-}
+.button:hover { background-color: #4a4949; }
+.button.active, .button:active { background-color: #191919; }
 
-.button.active,
-.button:active {
-background-color: #191919; 
-}
-
-.button svg {
-width: 20px; 
-height: 20px; 
-}
+.button svg { width: 20px; height: 20px; }
 
 .button-text {
-font-size: 12px;
-text-align: center;
-margin-top: 5px;
-color: black;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+  color: black;
 }
 
+.signPane { margin-top: calc(var(--rp)*1px*0.02); display: flex; }
 
-.signPane{
-  margin-top:calc(var(--rp)*1px*0.02);
-  display:flex
-}
+.photo4 { position: relative; top: -28px; width: 108px; height: 100px; }
 
-.photo4{
-position: relative;
-top: -28px;
-width: 108px;
-height: 100px;
-}
-
-
-#imageDisplay1 {
-  z-index: 1;  
-  left: 0px;
-  top: 60px;
-  max-width: 800px; 
-  width: 100%; 
-  position: relative; 
-}
-
-#imageDisplay2 {
-  z-index: 1;  
-  left: 0px;
-  bottom: 710px;
-  max-width: 800px; 
-  width: 100%; 
-  position: relative; 
-}
+#imageDisplay1 { z-index: 1; left: 0px; top: 60px; max-width: 800px; width: 100%; position: relative; }
+#imageDisplay2 { z-index: 1; left: 0px; bottom: 710px; max-width: 800px; width: 100%; position: relative; }
 
 .navbar {
   height: 101px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #000000;
-  padding: 0px 0;
+  background-color: #000;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -439,19 +294,11 @@ height: 100px;
   flex-direction: column;
   align-items: center;
   font-size: 12px;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
 }
 
-.navbar div img {
-  position: relative;
-  top: -28px;
-  width: 29px;
-  height: 29px;
-  margin-bottom: -28px;
-}
-
-
+.navbar div img { position: relative; top: -28px; width: 29px; height: 29px; margin-bottom: -28px; }
 
 #editButton {
   padding: 10px 15px;
@@ -465,7 +312,6 @@ height: 100px;
   z-index: 999;
   font-size: 16px;
 }
-
 
 #editMenu {
   position: absolute;
@@ -482,9 +328,7 @@ height: 100px;
   gap: 8px;
 }
 
-#editMenu.hidden {
-  display: none;
-}
+#editMenu.hidden { display: none; }
 
 #editMenu button {
   padding: 8px;
@@ -496,9 +340,7 @@ height: 100px;
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
 .menu {
   position: fixed;
@@ -525,19 +367,10 @@ height: 100px;
   transition: background-color 0.2s, transform 0.2s;
 }
 
-.menu-item:hover {
-  background-color: #efefef;
-  transform: scale(1.02);
-}
+.menu-item:hover { background-color: #efefef; transform: scale(1.02); }
+.menu-item:active { background-color: #e0e0e0; transform: scale(0.98); }
 
-.menu-item:active {
-  background-color: #e0e0e0;
-  transform: scale(0.98);
-}
-
-.menu-item:last-child {
-  border-bottom: none;
-}
+.menu-item:last-child { border-bottom: none; }
 
 .menu-item.close {
   font-weight: bold;
@@ -547,15 +380,67 @@ height: 100px;
   margin-top: 16px;
 }
 
-.menu-item.close:hover {
-  background: #f8d7da;
-}
+.menu-item.close:hover { background-color: #f8d7da; }
 
 @keyframes slideUp {
-  from {
-    transform: translateY(100%);
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@media only screen 
+  and (device-width: 430px) 
+  and (device-height: 932px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+  .container {
+    height: 58rem; 
   }
-  to {
-    transform: translateY(0);
+
+  .document {
+    height: 60%; 
+  }
+
+  .photo {
+    width: 155px; 
+    height: 220px;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info p {
+    margin-left: 24px;
+    font-size: 15px; 
+  }
+
+  .photo4{
+    margin-left: 24px;
+  }
+
+  .moving-bar{
+    top: 380px;
+    width: 366px;  
+    height: 21px;  
+  }
+
+  .moving-text{
+    width: 286px;  
+    font-size: 15px;  
+  }
+
+  .dots{
+    bottom: 210px;
+  }
+
+  .nameMain {
+    font-size: 27px;
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: 3px; 
+    cursor: grab;
   }
 }
