@@ -469,7 +469,7 @@ body {
   }
 
   #imageDisplay2 {
-    top: 0px;            /* трошки вгору */
+    top: -20px;            /* трошки вгору */
     max-width: 800px;
     width: 100%;
     position: absolute;
