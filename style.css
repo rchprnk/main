@@ -89,10 +89,10 @@ body {
 
 .document {
   position: absolute;
-  top: 140px;
+  top: 150px;
   left: 32px;
   right: 32px;
-  bottom: 230px;
+  bottom: 220px;
   background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
   border-radius: 24px;
   padding: 20px;
@@ -445,7 +445,7 @@ body {
   }
 
   .moving-bar{
-    top: 365px;
+    top: 405px;
     width: 366px;  
     height: 21px;  
   }
