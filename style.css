@@ -35,8 +35,25 @@ html, body {
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
+  background-color: black;
   touch-action: manipulation;
   font-family: 'e-Ukraine', Arial, sans-serif;
+
+  /* Додаємо, щоб фон розтягувався за межі safe-area */
+  padding-top: env(safe-area-inset-top);
+  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
+  z-index: -1;
 }
 
 body {
