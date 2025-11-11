@@ -440,7 +440,7 @@ body::before {
   }
 
   .document {
-    height: 56%; 
+    height: 57%; 
   }
 
   .photo {
@@ -475,7 +475,7 @@ body::before {
   }
 
   .dots{
-    bottom: 195px;
+    bottom: 250px;
   }
 
   .nameMain {
