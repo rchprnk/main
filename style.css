@@ -35,7 +35,8 @@
   width: 100%;
   height: env(safe-area-inset-top);
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
-  z-index: 10000;
+  z-index: 9999; /* поверх усіх елементів */
+  pointer-events: none; /* не блокує натискання */
 }
 
 
