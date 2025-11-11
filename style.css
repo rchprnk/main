@@ -41,11 +41,6 @@ html, body {
   font-family: 'e-Ukraine', Arial, sans-serif;
 }
 
-#app, .container {
-  height: 100vh; /* займає весь екран */
-  width: 100%;
-  box-sizing: border-box;
-}
 
 body {
   height: 100vh;
@@ -53,9 +48,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  padding-top: env(safe-area-inset-top); /* Додай це */
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: env(safe-area-inset-top);
+  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
+  z-index: 0;
 }
 
 #overlay {
