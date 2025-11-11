@@ -33,6 +33,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-color: black;
   overflow: hidden;
   box-sizing: border-box;
   touch-action: manipulation;
@@ -40,6 +41,8 @@ html, body {
 }
 
 body {
+  padding-top: env(safe-area-inset-top); /* працює на iPhone з вирізом */
+  background-color: transparent;
   height: 103.5vh;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
@@ -71,12 +74,15 @@ body {
 }
 
 .container {
-  position: relative;
-  width: 100rem;
-  height: 53.5rem;
+  position: fixed; /* замінюємо relative → fixed */
+  top: 0;
+  left: 0;
+  width: 100vw; /* краще vw, ніж rem — адаптується під екрани */
+  height: 100vh; /* на повну висоту екрану */
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   animation: gradientAnimation 10s infinite alternate ease-in-out;
   overflow: hidden;
+  padding-top: env(safe-area-inset-top); /* щоб не перекривати виріз на iPhone */
 }
 
 @keyframes gradientAnimation {
