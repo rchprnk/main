@@ -31,40 +31,39 @@
 html, body {
   margin: 0;
   padding: 0;
-  padding-top: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
   touch-action: manipulation;
-  background-color: white;
   font-family: 'e-Ukraine', Arial, sans-serif;
+  background-color: white;
 }
 
-
+/* Основний body з градієнтом і флексом */
 body {
-  height: 100vh;
-  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-top: env(safe-area-inset-top); /* Додай це */
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   margin: 0;
 }
 
+/* Накриття верхньої області (notch / статус-бар) */
 body::before {
   content: "";
-  display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: env(safe-area-inset-top);
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
-  z-index: 0;
+  z-index: -1;
 }
 
 #overlay {
