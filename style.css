@@ -28,6 +28,17 @@
   -webkit-touch-callout: none;
 }
 
+#statusBarCover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: env(safe-area-inset-top);
+  background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
+  z-index: 10000;
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
