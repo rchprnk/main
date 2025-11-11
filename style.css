@@ -31,16 +31,18 @@
 html, body {
   margin: 0;
   padding: 0;
+  padding-top: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
   touch-action: manipulation;
-  font-family: 'e-Ukraine', Arial, sans-serif;
   background-color: white;
+  font-family: 'e-Ukraine', Arial, sans-serif;
+  
 }
 
-/* Основний body з градієнтом і флексом */
+
 body {
   display: flex;
   justify-content: center;
@@ -54,7 +56,6 @@ body {
   margin: 0;
 }
 
-/* Накриття верхньої області (notch / статус-бар) */
 body::before {
   content: "";
   position: fixed;
