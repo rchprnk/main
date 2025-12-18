@@ -454,7 +454,9 @@ body::before {
     height: 100%;
     object-fit: cover;
   }
-
+.info{
+  top: 84px;
+}
   .info p {
     margin-left: 12px;
     font-size: 15px; 
