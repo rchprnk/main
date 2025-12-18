@@ -436,11 +436,11 @@ body::before {
     }
 
   .container {
-    height: 103%; 
+    height: 100%; 
   }
 
   .document {
-    height: 57%; 
+    height: 59%; 
   }
 
   .photo {
@@ -475,7 +475,7 @@ body::before {
   }
 
   .dots{
-    bottom: 240px;
+    bottom: 200px;
   }
 
   .nameMain {
