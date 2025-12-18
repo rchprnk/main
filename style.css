@@ -444,8 +444,9 @@ body::before {
   }
 
   .photo {
-    width: 145px; 
-    height: 199px;
+    top: 5px;
+    width: 150px; 
+    height: 210px;
   }
 
   .photo img {
