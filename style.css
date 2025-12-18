@@ -436,7 +436,7 @@ body::before {
     }
 
   .container {
-    height: 100%; 
+    height: 99%; 
   }
 
   .document {
@@ -444,7 +444,7 @@ body::before {
   }
 
   .photo {
-    top: 5px;
+    top: 7px;
     width: 150px; 
     height: 210px;
   }
