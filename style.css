@@ -444,8 +444,8 @@ body::before {
   }
 
   .photo {
-    width: 152px; 
-    height: 208px;
+    width: 145px; 
+    height: 199px;
   }
 
   .photo img {
@@ -455,7 +455,7 @@ body::before {
   }
 
   .info p {
-    margin-left: 24px;
+    margin-left: 12px;
     font-size: 15px; 
   }
 
