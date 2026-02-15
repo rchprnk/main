@@ -315,23 +315,16 @@ document.addEventListener('wheel', function(e) {
 
 const pinInput = document.getElementById("pinInput");
 const pinButton = document.getElementById("pinButton");
-const faceButton = document.getElementById("faceButton");
 const loginScreen = document.getElementById("loginScreen");
 const appContent = document.getElementById("appContent");
 
 const savedPin = localStorage.getItem("userPin");
 
-// Якщо пароль вже збережений – показуємо Face ID
-if (savedPin) {
-  document.getElementById("loginTitle").innerText = "Вітаємо!";
-  document.getElementById("loginText").innerText = "Введіть пароль або використайте Face ID";
-  pinInput.value = "";
-  faceButton.style.display = "inline-block";
-}
-
 // Підтвердження паролю або створення нового
 pinButton.addEventListener("click", () => {
   const pin = pinInput.value.trim();
+
+  // Перевірка формату
   if (pin.length !== 4 || !/^\d{4}$/.test(pin)) {
     alert("Пароль повинен містити 4 цифри!");
     return;
@@ -340,7 +333,7 @@ pinButton.addEventListener("click", () => {
   if (!savedPin) {
     // Перший раз – зберігаємо пароль
     localStorage.setItem("userPin", pin);
-    alert("Пароль збережено! Тепер можна входити через Face ID або пароль.");
+    alert("Пароль збережено! Тепер можна входити за паролем.");
   } else {
     // Перевірка існуючого паролю
     if (pin !== savedPin) {
@@ -349,6 +342,7 @@ pinButton.addEventListener("click", () => {
     }
   }
 
+  // При успішному введенні паролю показуємо основний контент
   loginScreen.style.display = "none";
   appContent.style.display = "block";
 });
