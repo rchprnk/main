@@ -5,60 +5,36 @@
            window.matchMedia('(display-mode: standalone)').matches;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  if (!isPWA()) {
 
-    if (!isPWA()) {
+    document.documentElement.innerHTML = `
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PWA Only</title>
+      </head>
+      <body style="
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:#ffffff;
+        font-family:'e-Ukraine', Arial, sans-serif;
+        text-align:center;
+        padding:20px;
+        box-sizing:border-box;">
+        <div>
+          <h2>Встановіть додаток на iPhone</h2>
+          <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+          <img src="pwaimage.png" style="max-width:450px;margin-top:20px;">
+        </div>
+      </body>
+    `;
 
-      // Прибираємо весь існуючий контент
-      document.documentElement.innerHTML = `
-        <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>PWA Only</title>
-        </head>
-        <body >       
-        <style>
-        #installInstruction {
-  display: none; /* спочатку ховаємо */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff; /* білий фон */
-  z-index: 99999; /* поверх усього */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-  font-family: 'e-Ukraine', Arial, sans-serif;
-  color: #000;
-}
-
-#installInstruction img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 30px;
-  font-size: 30px;
-}
-        </style>
-        <div id="installInstruction">
-        <h2>Встановіть додаток на iPhone</h2>
-        <p>Натисніть кнопку <strong>«Поділитися»</strong> в Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-        <img src="pwaimage.png" alt="Інструкція встановлення" style="max-width: 480px; margin-top: 5px;">
-      </div>
-        </body>
-      `;
-
-      throw new Error("Blocked: Not PWA");
-    }
-
-  });
+    return; // 🔥 зупиняємо весь інший JS
+  }
 
 })();
-
 
 let countdown = 180;
 
@@ -334,14 +310,6 @@ document.addEventListener('wheel', function(e) {
   if (e.ctrlKey) e.preventDefault(); // блокує zoom через ctrl+колесо на ПК
 }, { passive: false });
 
-
-window.addEventListener('load', () => {
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-
-  if (!isStandalone) {
-    document.getElementById('installInstruction').style.display = 'flex';
-  }
-});
 
 
 
