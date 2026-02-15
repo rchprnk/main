@@ -361,34 +361,6 @@ body {
   flex-direction: column;
   gap: 8px;
 }
-/*без пва*/
-
-
-#installInstruction {
-  display: none; /* спочатку ховаємо */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff; /* білий фон */
-  z-index: 99999; /* поверх усього */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-  font-family: 'e-Ukraine', Arial, sans-serif;
-  color: #000;
-}
-
-#installInstruction img {
-  max-width: 80%;
-  height: auto;
-  margin-top: 15px;
-}
 
 #editMenu.hidden { display: none; }
 
