@@ -175,12 +175,31 @@ setInterval(updateTimer, 1000);
 
 
 
+// function changeName() {
+//   const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
+//   if (name) {
+//     const parts = name.trim().split(/\s+/); // розбиває по пробілах
+//     const formatted = parts.join("<br>");   // додає <br> між словами
+//     document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
+//   }
+//   togglePopupMenu();
+// }
+
+
 function changeName() {
   const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
   if (name) {
-    const parts = name.trim().split(/\s+/); // розбиває по пробілах
-    const formatted = parts.join("<br>");   // додає <br> між словами
+    const parts = name.trim().split(/\s+/);
+
+    // В документі (з <br>)
+    const formatted = parts.join("<br>");
     document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
+
+    // Беремо тільки ім’я (друге слово)
+    const firstName = parts[1] || parts[0];
+
+    // Виводимо у вкладці "Стрічка"
+    document.getElementById("strichkaName").textContent = firstName;
   }
   togglePopupMenu();
 }
