@@ -11,39 +11,6 @@
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="DiiaLogo.png">
   <title>Passport UI Clone</title>
-  <style>
-    body { display:none; }
-  </style>
-  <script>
-    function isPWA() {
-      return window.navigator.standalone === true ||
-             window.matchMedia('(display-mode: standalone)').matches;
-    }
-    
-    window.addEventListener("load", function() {
-      if (isPWA()) {
-        document.body.style.display = "block";
-      } else {
-        document.body.innerHTML = `
-          <div style="
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background:black;
-            color:white;
-            font-family:sans-serif;
-            text-align:center;
-            padding:20px;">
-            <div>
-              <h2>Відкрийте як PWA</h2>
-              <p>Додайте на головний екран</p>
-            </div>
-          </div>
-        `;
-      }
-    });
-    </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <div class="container">
