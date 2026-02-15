@@ -1,46 +1,53 @@
-(function () {
-
+(function() {
+  // Функція перевірки, чи додаток встановлено як PWA
   function isPWA() {
     return window.navigator.standalone === true ||
            window.matchMedia('(display-mode: standalone)').matches;
   }
 
-  if (!isPWA()) {
+  // Чекаємо, поки DOM завантажиться
+  document.addEventListener('DOMContentLoaded', function() {
 
-    // Створюємо overlay
-    const overlay = document.createElement('div');
-    overlay.id = 'installInstruction';
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #fff;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-      font-family: 'e-Ukraine', Arial, sans-serif;
-      color: #000;
-    `;
+    if (!isPWA()) {
+      // Створюємо стилі для оверлею
+      const style = document.createElement('style');
+      style.innerHTML = `
+        #pwaOverlay {
+          position: fixed;
+          top:0; left:0;
+          width:100vw; height:100vh;
+          background:#fff;
+          z-index:9999;
+          display:flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align:center;
+          padding:20px;
+          box-sizing:border-box;
+          font-family:'e-Ukraine', Arial, sans-serif;
+        }
+        #pwaOverlay img {
+          max-width: 90%;
+          height: auto;
+          margin-top: 20px;
+        }
+      `;
+      document.head.appendChild(style);
 
-    overlay.innerHTML = `
-      <h2>Встановіть додаток на iPhone</h2>
-      <p>Натисніть кнопку <strong>«Поділитися»</strong> в Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-      <img src="pwaimage.png" alt="Інструкція встановлення" style="max-width:90%; height:auto; margin-top:20px;">
-    `;
+      // Створюємо оверлей
+      const overlay = document.createElement('div');
+      overlay.id = 'pwaOverlay';
+      overlay.innerHTML = `
+        <h2>Встановіть додаток на iPhone</h2>
+        <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+        <img src="pwaimage.png" alt="Інструкція встановлення">
+      `;
 
-    document.body.appendChild(overlay);
+      document.body.appendChild(overlay);
+    }
 
-    // Опціонально можна заблокувати скрол
-    document.body.style.overflow = 'hidden';
-  }
-
+  });
 })();
 
 let countdown = 180;
