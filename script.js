@@ -236,3 +236,31 @@ generateQRCode();
 setInterval(updateTimer, 1000);
 
 // --- Усі інші твої блоки залишені без змін: lock орієнтації, overlay, заборона копіювання, подвійний клік, свайпи, зум ---
+
+window.addEventListener("load", () => {
+  const savedName = localStorage.getItem("userName");
+  const savedDate = localStorage.getItem("userDate");
+  const savedPhoto = localStorage.getItem("userPhoto");
+
+  // Відновлюємо userName, userDate, userPhoto без показу strichkaName
+  if (savedName) {
+    const parts = savedName.trim().split(/\s+/);
+    document.getElementById("userName").innerHTML = `<p>${parts.join("<br>")}</p>`;
+  }
+  if (savedDate) document.getElementById("userDate").innerText = savedDate;
+  if (savedPhoto) document.getElementById("userPhoto").src = savedPhoto;
+
+  // Сховати стрічку на старті
+  const strichka = document.getElementById("strichkaName");
+  strichka.style.display = "none";
+
+  // Показуємо стрічку тільки після кліку на меню3
+  document.getElementById("icon-menu3").addEventListener("click", () => {
+    if (savedName) {
+      const parts = savedName.trim().split(/\s+/);
+      const firstName = parts[1] || parts[0];
+      strichka.textContent = `Привіт, ${firstName} 👋`;
+    }
+    strichka.style.display = "block";
+  });
+});
