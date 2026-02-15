@@ -1,12 +1,11 @@
+// --- PWA перевірка ---
 (function () {
-
   function isPWA() {
     return window.navigator.standalone === true ||
            window.matchMedia('(display-mode: standalone)').matches;
   }
 
   if (!isPWA()) {
-
     document.documentElement.innerHTML = `
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,145 +29,43 @@
         </div>
       </body>
     `;
-
-    return; // 🔥 зупиняємо весь інший JS
+    return;
   }
-
 })();
 
-let countdown = 180;
-
-// Оновлення таймера
-function updateTimer() {
-  const timerElement = document.getElementById('timer');
-  const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
-  const seconds = (countdown % 60).toString().padStart(2, '0');
-  timerElement.textContent = `${minutes}:${seconds}`;
-
-  if (countdown > 0) {
-    countdown--;
-  } else {
-    generateQRCode();
-    countdown = 180;
-  }
-}
-
-// Генерація QR-коду
+// --- QR / Штрих-код ---
 function generateQRCode() {
   const qrCodeElement = document.getElementById('qr-code');
+  if (!qrCodeElement) return;
   const texts = [
-    "що сука, немає 18 що сука, немає 18 що сука, немає 18 що сука, немає 18 що сука, немає 18 що сука, немає 18 ",
-    "Що за хрін, немає 18 Що за хрін, немає 18 Що за хрін, немає 18 Що за хрін, немає 18 Що за хрін, немає 18 18",
-    "шо блядь, немає 18 шо блядь, немає 18 шо блядь, немає 18 шо блядь, немає 18 шо блядь, немає 18 " +
-      Math.random().toString(36).substring(2, 8).toUpperCase()
+    "що сука, немає 18 ".repeat(6),
+    "Що за хрін, немає 18 ".repeat(5),
+    "шо блядь, немає 18 " + Math.random().toString(36).substring(2,8).toUpperCase()
   ];
   const randomText = texts[Math.floor(Math.random() * texts.length)];
   qrCodeElement.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(randomText)}`;
 }
 
-// Генерація штрих-коду
 function generateBarcode() {
   const barcodeElement = document.getElementById('qr-code');
-  const texts = [
-    "6784  5839  93402",
-    "9684  8275  62757",
-    "8275  9239  38949"
-  ];
+  if (!barcodeElement) return;
+  const texts = ["6784 5839 93402","9684 8275 62757","8275 9239 38949"];
   const randomCode = texts[Math.floor(Math.random() * texts.length)];
   barcodeElement.src = `https://barcode.tec-it.com/barcode.ashx?data=${encodeURIComponent(randomCode)}&code=Code128&dpi=300&scale=4&barwidth=1.7&height=40&fontname=Arial&fontsize=26&includetext=True&textsize=26`;
 }
 
-// Запобігання перевертанню при натисканні на кнопки
-function toggleDocument(event) {
-  const isNoFlip = event.target.closest('#qr-button, #barcode-button, [data-no-flip]');
-  if (!isNoFlip) {
-    document.querySelector('.container').classList.toggle('flipped');
-  }
-}
-
-// Обробка меню
-document.addEventListener('DOMContentLoaded', function () {
-  const image1 = document.getElementById("imageDisplay1");
-  const image2 = document.getElementById("imageDisplay2");
-
-  function changeImage(menu) {
-    document.getElementById("strichkaName").style.display = "none";
-    document.getElementById("icon-menu").src = "menu.jpg";
-    document.getElementById("icon-menu1").src = "servis.jpg";
-    document.getElementById("icon-menu2").src = "dokument.jpg";
-    document.getElementById("icon-menu3").src = "strichka.jpg";
-
-    image1.style.display = 'block';
-    image2.style.display = 'block';
-
-    switch(menu) {
-      case 'menu':
-        image1.src = "serwis.jpg";
-        image2.src = "foon.jpg";
-        document.getElementById("icon-menu").src = "menu-active.jpg";
-        break;
-      case 'menu1':
-        image1.src = "menuu.jpg";
-        image2.src = "foon.jpg";
-        document.getElementById("icon-menu1").src = "servis-active.jpg";
-        break;
-      case 'menu2':
-        image1.style.display = 'none';
-        image2.style.display = 'none';
-        document.getElementById("icon-menu2").src = "dokument-active.jpg";
-        break;
-        case 'menu3':
-          image1.src = "striczka.jpg";
-          image2.src = "foon.jpg";
-          document.getElementById("icon-menu3").src = "strichka-active.jpg";
-        
-          const strichka = document.getElementById("strichkaName");
-          strichka.style.display = "block";
-        
-          // Беремо текст без HTML тегів
-          const fullNameElement = document.getElementById("userName");
-          const fullName = fullNameElement.innerText || fullNameElement.textContent || "";
-          const parts = fullName.replace(/\n/g, ' ').trim().split(/\s+/);
-          const firstName = parts[1] || parts[0];
-        
-          strichka.textContent = `Привіт, ${firstName} 👋`;
-          break;
-    }
-  }
-
-  document.getElementById("icon-menu").addEventListener("click", () => changeImage('menu'));
-  document.getElementById("icon-menu1").addEventListener("click", () => changeImage('menu1'));
-  document.getElementById("icon-menu2").addEventListener("click", () => changeImage('menu2'));
-  document.getElementById("icon-menu3").addEventListener("click", () => changeImage('menu3'));
-});
-
-// Кнопки QR і Штрих-код
 const qrButton = document.getElementById('qr-button');
 const barcodeButton = document.getElementById('barcode-button');
-
-qrButton.addEventListener('click', () => {
-  qrButton.classList.add('active');
-  barcodeButton.classList.remove('active');
-  generateQRCode();
-});
-
-barcodeButton.addEventListener('click', () => {
-  barcodeButton.classList.add('active');
-  qrButton.classList.remove('active');
-  generateBarcode();
-});
-
-// Обробка кліків по документу
-document.querySelectorAll('.document').forEach((doc) => {
-  doc.addEventListener('click', toggleDocument);
-});
-
-// Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => console.log('ServiceWorker зареєстровано з успіхом:', reg))
-      .catch(err => console.log('Помилка реєстрації ServiceWorker:', err));
+if (qrButton && barcodeButton) {
+  qrButton.addEventListener('click', () => {
+    qrButton.classList.add('active');
+    barcodeButton.classList.remove('active');
+    generateQRCode();
+  });
+  barcodeButton.addEventListener('click', () => {
+    barcodeButton.classList.add('active');
+    qrButton.classList.remove('active');
+    generateBarcode();
   });
 }
 
@@ -195,13 +92,11 @@ function openChangeMenu() {
   }
 }
 
-// Зміна ПІБ
 function changeName() {
   const name = prompt("Введіть новий ПІБ (прізвище ім'я по-батькові):");
   if (name) {
     const parts = name.trim().split(/\s+/);
-    const formatted = parts.join("<br>");
-    document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
+    document.getElementById("userName").innerHTML = `<p>${parts.join("<br>")}</p>`;
     const firstName = parts[1] || parts[0];
     document.getElementById("strichkaName").textContent = `Привіт, ${firstName} 👋`;
     localStorage.setItem("userName", name);
@@ -209,7 +104,6 @@ function changeName() {
   togglePopupMenu();
 }
 
-// Зміна дати
 function changeDate() {
   const date = prompt("Введіть нову дату:");
   if (date) {
@@ -219,7 +113,6 @@ function changeDate() {
   togglePopupMenu();
 }
 
-// Зміна фото
 function changePhoto() {
   const fileInput = document.createElement("input");
   fileInput.type = "file";
@@ -239,48 +132,22 @@ function changePhoto() {
   togglePopupMenu();
 }
 
-// Скидання до початкового стану
 function resetData() {
   localStorage.removeItem("userName");
   localStorage.removeItem("userDate");
   localStorage.removeItem("userPhoto");
-
   document.getElementById("userName").innerHTML = "<p>Прізвище<br>Ім'я<br>По-Батькові</p>";
   document.getElementById("userDate").innerText = "ВВЕДІТЬ ДАТУ!";
   document.getElementById("userPhoto").src = "ВСТАВТЕ ФОТО!";
   document.getElementById("strichkaName").textContent = "";
-  
   togglePopupMenu();
 }
 
-// Відновлення даних при завантаженні
+// --- Відновлення даних ---
 window.addEventListener("load", () => {
   const savedName = localStorage.getItem("userName");
   const savedDate = localStorage.getItem("userDate");
   const savedPhoto = localStorage.getItem("userPhoto");
-
-  if (savedName) {
-    const parts = savedName.trim().split(/\s+/);
-    document.getElementById("userName").innerHTML = `<p>${parts.join("<br>")}</p>`;
-    const firstName = parts[1] || parts[0];
-    document.getElementById("strichkaName").textContent = `Привіт, ${firstName} 👋`;
-  }
-  if (savedDate) document.getElementById("userDate").innerText = savedDate;
-  if (savedPhoto) document.getElementById("userPhoto").src = savedPhoto;
-});
-
-// --- Запуск таймера і QR ---
-generateQRCode();
-setInterval(updateTimer, 1000);
-
-// --- Усі інші твої блоки залишені без змін: lock орієнтації, overlay, заборона копіювання, подвійний клік, свайпи, зум ---
-
-window.addEventListener("load", () => {
-  const savedName = localStorage.getItem("userName");
-  const savedDate = localStorage.getItem("userDate");
-  const savedPhoto = localStorage.getItem("userPhoto");
-
-  // Відновлюємо userName, userDate, userPhoto без показу strichkaName
   if (savedName) {
     const parts = savedName.trim().split(/\s+/);
     document.getElementById("userName").innerHTML = `<p>${parts.join("<br>")}</p>`;
@@ -288,61 +155,86 @@ window.addEventListener("load", () => {
   if (savedDate) document.getElementById("userDate").innerText = savedDate;
   if (savedPhoto) document.getElementById("userPhoto").src = savedPhoto;
 
-  // Сховати стрічку на старті
+  // Приховуємо стрічку до кліку меню3
   const strichka = document.getElementById("strichkaName");
   strichka.style.display = "none";
-
-  // Показуємо стрічку тільки після кліку на меню3
-  document.getElementById("icon-menu3").addEventListener("click", () => {
-    if (savedName) {
+  const menu3 = document.getElementById("icon-menu3");
+  if (menu3 && savedName) {
+    menu3.addEventListener("click", () => {
       const parts = savedName.trim().split(/\s+/);
       const firstName = parts[1] || parts[0];
       strichka.textContent = `Привіт, ${firstName} 👋`;
-    }
-    strichka.style.display = "block";
-  });
+      strichka.style.display = "block";
+    });
+  }
 });
 
-document.addEventListener('gesturestart', function (e) {
-  e.preventDefault();  // блокує pinch на iOS
-});
-document.addEventListener('wheel', function(e) {
-  if (e.ctrlKey) e.preventDefault(); // блокує zoom через ctrl+колесо на ПК
-}, { passive: false });
-
-
-
-
+// --- Клавіатура PIN входу ---
 const pinInput = document.getElementById("pinInput");
+const dots = document.querySelectorAll(".dot");
+const keys = document.querySelectorAll(".key");
 const pinButton = document.getElementById("pinButton");
 const loginScreen = document.getElementById("loginScreen");
 const appContent = document.getElementById("appContent");
 
-const savedPin = localStorage.getItem("userPin");
+let currentPin = "";
 
-// Підтвердження паролю або створення нового
+// Натискання клавіш
+keys.forEach(key => {
+  key.addEventListener("click", () => {
+    if (key.classList.contains("delete")) {
+      currentPin = currentPin.slice(0, -1);
+    } else if (!key.classList.contains("transparent") && currentPin.length < 4) {
+      currentPin += key.textContent;
+    }
+    updateDots();
+    if (currentPin.length === 4) pinButton.click();
+  });
+});
+
+function updateDots() {
+  dots.forEach((dot, i) => {
+    dot.style.background = i < currentPin.length ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)";
+  });
+}
+
+// Перевірка PIN
 pinButton.addEventListener("click", () => {
-  const pin = pinInput.value.trim();
+  const savedPin = localStorage.getItem("userPin");
 
-  // Перевірка формату
-  if (pin.length !== 4 || !/^\d{4}$/.test(pin)) {
+  if (!/^\d{4}$/.test(currentPin)) {
     alert("Пароль повинен містити 4 цифри!");
     return;
   }
 
   if (!savedPin) {
-    // Перший раз – зберігаємо пароль
-    localStorage.setItem("userPin", pin);
+    localStorage.setItem("userPin", currentPin);
     alert("Пароль збережено! Тепер можна входити за паролем.");
-  } else {
-    // Перевірка існуючого паролю
-    if (pin !== savedPin) {
-      alert("Невірний пароль!");
-      return;
-    }
+  } else if (currentPin !== savedPin) {
+    alert("Невірний пароль!");
+    currentPin = "";
+    updateDots();
+    return;
   }
 
-  // При успішному введенні паролю показуємо основний контент
   loginScreen.style.display = "none";
   appContent.style.display = "block";
+  currentPin = "";
+  updateDots();
 });
+
+// --- Блокування pinch / zoom ---
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('wheel', e => { if(e.ctrlKey)e.preventDefault(); }, { passive:false });
+
+// --- Service Worker ---
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('ServiceWorker зареєстровано:', reg))
+      .catch(err => console.log('Помилка реєстрації SW:', err));
+  });
+}
+
+// --- Запуск QR на старт ---
+generateQRCode();
