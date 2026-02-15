@@ -159,7 +159,7 @@ function openChangeMenu() {
 
 // Зміна ПІБ
 function changeName() {
-  const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
+  const name = prompt("Введіть новий ПІБ (прізвище ім'я по-батькові):");
   if (name) {
     const parts = name.trim().split(/\s+/);
     const formatted = parts.join("<br>");
@@ -207,7 +207,7 @@ function resetData() {
   localStorage.removeItem("userDate");
   localStorage.removeItem("userPhoto");
 
-  document.getElementById("userName").innerHTML = "<p>Прізвище<br>Ім'я<br>ПоБатькові</p>";
+  document.getElementById("userName").innerHTML = "<p>Прізвище<br>Ім'я<br>По-Батькові</p>";
   document.getElementById("userDate").innerText = "ВВЕДІТЬ ДАТУ!";
   document.getElementById("userPhoto").src = "ВСТАВТЕ ФОТО!";
   document.getElementById("strichkaName").textContent = "";
