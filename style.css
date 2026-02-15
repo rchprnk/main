@@ -365,84 +365,43 @@ body {
 
 
 
-.lockscreen {
-  height: 100vh;
-  background: linear-gradient(180deg, #9fb6c9 0%, #b8d3c4 100%);
+#loginScreen {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  z-index: 9999;
 }
 
 .loginCard {
-  width: 390px;
-  height: 844px;
-  padding: 70px 30px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 350px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.title {
-  font-size: 26px;
-  font-weight: 500;
-  margin-bottom: 50px;
+.loginCard input {
+  font-size: 24px;
+  width: 80%;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
 }
 
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 60px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 50%;
-}
-
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  justify-items: center;
-}
-
-.key {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.92);
-  font-size: 30px;
-  font-weight: 500;
-  color: #000;
-}
-
-.key.transparent {
-  background: transparent;
-}
-
-.face {
-  width: 42px;
-  height: 42px;
-  stroke: black;
-  stroke-width: 5;
-  fill: none;
-}
-
-.delete {
-  font-size: 26px;
-}
-
-.forgot {
+.loginCard button {
+  padding: 12px 20px;
   font-size: 16px;
-  margin-top: 40px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
 }
-
 
 
 #editMenu.hidden { display: none; }
