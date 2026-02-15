@@ -119,7 +119,25 @@
       <div id="installInstruction">
         <h2>Встановіть додаток на iPhone</h2>
         <p>Натисніть кнопку <strong>«Поділитися»</strong> в Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-        <img src="install-step.png" alt="Інструкція встановлення" style="max-width: 300px; margin-top: 10px;">
+        <img src="GPTImage.png" alt="Інструкція встановлення" style="max-width: 300px; margin-top: 10px;">
+      </div>
+
+
+            <!-- Початковий екран -->
+      <div id="loginScreen">
+        <div class="loginCard">
+          <h2 id="loginTitle">Вітаємо!</h2>
+          <p id="loginText">Придумайте 4-значний пароль</p>
+          
+          <input type="password" id="pinInput" maxlength="4" pattern="\d*" inputmode="numeric" placeholder="••••">
+          <button id="pinButton">Підтвердити</button>
+          
+          <button id="faceButton" style="display:none;">Використати Face ID</button>
+        </div>
+      </div>
+
+      <div id="appContent" style="display:none;">
+        <!-- основний контент програми -->
       </div>
 
         <script src="script.js"></script>

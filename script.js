@@ -280,3 +280,62 @@ window.addEventListener('load', () => {
     document.getElementById('installInstruction').style.display = 'flex';
   }
 });
+
+
+
+const pinInput = document.getElementById("pinInput");
+const pinButton = document.getElementById("pinButton");
+const faceButton = document.getElementById("faceButton");
+const loginScreen = document.getElementById("loginScreen");
+const appContent = document.getElementById("appContent");
+
+const savedPin = localStorage.getItem("userPin");
+
+// Якщо пароль вже збережений – показуємо Face ID
+if (savedPin) {
+  document.getElementById("loginTitle").innerText = "Вітаємо!";
+  document.getElementById("loginText").innerText = "Введіть пароль або використайте Face ID";
+  pinInput.value = "";
+  faceButton.style.display = "inline-block";
+}
+
+// Підтвердження паролю або створення нового
+pinButton.addEventListener("click", () => {
+  const pin = pinInput.value.trim();
+  if (pin.length !== 4 || !/^\d{4}$/.test(pin)) {
+    alert("Пароль повинен містити 4 цифри!");
+    return;
+  }
+
+  if (!savedPin) {
+    // Перший раз – зберігаємо пароль
+    localStorage.setItem("userPin", pin);
+    alert("Пароль збережено! Тепер можна входити через Face ID або пароль.");
+  } else {
+    // Перевірка існуючого паролю
+    if (pin !== savedPin) {
+      alert("Невірний пароль!");
+      return;
+    }
+  }
+
+  loginScreen.style.display = "none";
+  appContent.style.display = "block";
+});
+
+// Face ID (якщо PWA)
+faceButton.addEventListener("click", async () => {
+  if (!window.matchMedia('(display-mode: standalone)').matches) {
+    alert("Face ID доступний тільки в PWA!");
+    return;
+  }
+
+  try {
+    // WebAuthn simple запит (Face ID або Touch ID)
+    const cred = await navigator.credentials.get({ publicKey: {} });
+    loginScreen.style.display = "none";
+    appContent.style.display = "block";
+  } catch (e) {
+    alert("Face ID не вдалося активувати");
+  }
+});
