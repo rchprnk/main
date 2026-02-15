@@ -271,3 +271,14 @@ document.addEventListener('gesturestart', function (e) {
 document.addEventListener('wheel', function(e) {
   if (e.ctrlKey) e.preventDefault(); // блокує zoom через ctrl+колесо на ПК
 }, { passive: false });
+
+
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+if (!isStandalone) {
+    // Показати інструкцію додавання на головний екран
+    document.getElementById('installInstruction').style.display = 'block';
+} else {
+    // Сховати інструкцію, якщо PWA запущено
+    document.getElementById('installInstruction').style.display = 'none';
+}

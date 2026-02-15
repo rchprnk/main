@@ -359,6 +359,18 @@ body {
   gap: 8px;
 }
 
+#installInstruction {
+  font-family: 'e-Ukraine', Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+
 #editMenu.hidden { display: none; }
 
 #editMenu button {
