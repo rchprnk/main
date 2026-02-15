@@ -51,8 +51,6 @@
       </div>
         </body>
       `;
-
-      throw new Error("Blocked: Not PWA");
     }
 
   });
