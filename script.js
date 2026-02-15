@@ -7,47 +7,38 @@
 
   if (!isPWA()) {
 
-    document.documentElement.innerHTML = `
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PWA Only</title>
-        <style>
-          body {
-            margin: 0;
-            font-family: 'e-Ukraine', Arial, sans-serif;
-          }
-          #installInstruction {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #fff;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            color: #000;
-          }
-          #installInstruction img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
-          }
-        </style>
-      </head>
-      <body>
-        <div id="installInstruction">
-          <h2>Встановіть додаток на iPhone</h2>
-          <p>Натисніть кнопку <strong>«Поділитися»</strong> в Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-          <img src="pwaimage.png" alt="Інструкція встановлення">
-        </div>
-      </body>
+    // Створюємо overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'installInstruction';
+    overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #fff;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      font-family: 'e-Ukraine', Arial, sans-serif;
+      color: #000;
     `;
+
+    overlay.innerHTML = `
+      <h2>Встановіть додаток на iPhone</h2>
+      <p>Натисніть кнопку <strong>«Поділитися»</strong> в Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+      <img src="pwaimage.png" alt="Інструкція встановлення" style="max-width:90%; height:auto; margin-top:20px;">
+    `;
+
+    document.body.appendChild(overlay);
+
+    // Опціонально можна заблокувати скрол
+    document.body.style.overflow = 'hidden';
   }
 
 })();
