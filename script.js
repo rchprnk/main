@@ -5,32 +5,36 @@
   }
 
   if (!isPWA()) {
+    // створюємо overlay
     const overlay = document.createElement('div');
-    overlay.id = 'pwa-overlay';
     overlay.style.position = 'fixed';
     overlay.style.top = 0;
     overlay.style.left = 0;
     overlay.style.width = '100%';
     overlay.style.height = '100vh';
-    overlay.style.background = '#ffffff';
-    overlay.style.zIndex = '9999';
+    overlay.style.background = '#fff';
     overlay.style.display = 'flex';
     overlay.style.flexDirection = 'column';
     overlay.style.justifyContent = 'center';
     overlay.style.alignItems = 'flex-start'; // зсунули вліво
-    overlay.style.textAlign = 'left';
+    overlay.style.padding = '40px';
+    overlay.style.boxSizing = 'border-box';
     overlay.style.fontFamily = "'e-Ukraine', Arial, sans-serif";
-    overlay.style.padding = '40px'; // трохи більше паддінгу
+    overlay.style.zIndex = '9999';
+    overlay.style.textAlign = 'left';
+
+    // контент
     overlay.innerHTML = `
-      <div style="max-width: 400px;"> <!-- обмежуємо ширину -->
-        <h2>Встановіть додаток на iPhone</h2>
-        <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-        <img src="pwaimage.png" style="max-width:100%;margin-top:20px;">
+      <div style="max-width: 400px;">
+        <h2 style="margin-bottom: 15px;">Встановіть додаток на iPhone</h2>
+        <p style="margin-bottom: 20px;">Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+        <img src="pwaimage.png" style="max-width:100%; height:auto;">
       </div>
     `;
 
     document.body.appendChild(overlay);
 
+    // блокуємо взаємодію зі сторінкою під overlay
     overlay.addEventListener('click', e => e.stopPropagation());
     overlay.addEventListener('touchstart', e => e.stopPropagation());
   }
