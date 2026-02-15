@@ -5,33 +5,57 @@
            window.matchMedia('(display-mode: standalone)').matches;
   }
 
-  if (!isPWA()) {
+  document.addEventListener("DOMContentLoaded", function () {
 
-    document.body.innerHTML = `
-      <div style="
-        position:fixed;
-        top:0;
-        left:0;
-        width:100vw;
-        height:100vh;
-        background:#ffffff;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction:column;
-        text-align:center;
-        font-family:'e-Ukraine', Arial, sans-serif;
-        padding:20px;
-        z-index:999999;">
-        
+    if (!isPWA()) {
+
+      // Прибираємо весь існуючий контент
+      document.documentElement.innerHTML = `
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>PWA Only</title>
+        </head>
+        <body >       
+        <style>
+        #installInstruction {
+  display: none; /* спочатку ховаємо */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff; /* білий фон */
+  z-index: 99999; /* поверх усього */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'e-Ukraine', Arial, sans-serif;
+  color: #000;
+}
+
+#installInstruction img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 30px;
+  font-size: 30px;
+}
+        </style>
+        <div id="installInstruction">
         <h2>Встановіть додаток на iPhone</h2>
-        <p>Натисніть «Поділитися» у Safari та оберіть «Додати на головний екран».</p>
-        <img src="pwaimage.png" style="max-width:300px;margin-top:20px;">
+        <p>Натисніть кнопку <strong>«Поділитися»</strong> в Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+        <img src="pwaimage.png" alt="Інструкція встановлення" style="max-width: 480px; margin-top: 5px;">
       </div>
-    `;
+        </body>
+      `;
 
-    return;
-  }
+      throw new Error("Blocked: Not PWA");
+    }
+
+  });
 
 })();
 
