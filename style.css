@@ -48,7 +48,7 @@ html, body {
 body {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: start;
   height: 100vh;
   width: 100%;
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
@@ -70,11 +70,11 @@ body {
 } */
 
 #strichkaName {
-  position: absolute;
-  top: 150px;   /* тимчасово */
-  left: 50%;
+  position: relative;
+  top: 103px;   
+  left: 56%;
   transform: translateX(-50%);
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 500;
   color: black;
   z-index: 5;
@@ -304,8 +304,8 @@ body {
 
 .photo4 { position: relative; top: -28px; width: 108px; height: 100px; }
 
-#imageDisplay1 { z-index: 1; left: 0px; top: 60px; max-width: 800px; width: 100%; position: relative; }
-#imageDisplay2 { z-index: 1; left: 0px; bottom: 710px; max-width: 800px; width: 100%; position: relative; }
+#imageDisplay1 { z-index: 1; left: 0px; top: 41px; max-width: 800px; width: 100%; position: relative; }
+#imageDisplay2 { z-index: 1; left: 0px; bottom: 760px; max-width: 800px; width: 100%; position: relative; }
 
 .navbar {
   height: 101px;
@@ -508,9 +508,43 @@ body {
   }
 
   #imageDisplay1 {
-    top: 55px;            /* трошки вгору */
+    top: 58px;            /* трошки вгору */
     width: 100%;
     position: absolute;
   }
 
+}
+
+/* Для всіх екранів менше ніж 430px по ширині */
+@media (max-width: 429px) {
+  #strichkaName {
+      top: 90px; /* піднімаємо трохи */
+      font-size: 28px;
+  }
+}
+
+/* Для всіх екранів між 430 і 480px */
+@media (min-width: 430px) and (max-width: 480px) {
+  #strichkaName {
+      top: 95px;
+      font-size: 30px;
+  }
+}
+
+/* 15 Pro Max залишаємо недоторканим, бо він точно 430x932px */
+#strichkaName {
+  top: 103px;
+  font-size: 32px;
+}
+
+/* iPhone 12 Pro (390 x 844, DPR 3) */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+    #strichkaName {
+        top: -614px;
+        font-size: 30px;
+    }
 }

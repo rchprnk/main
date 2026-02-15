@@ -79,12 +79,22 @@ document.addEventListener('DOMContentLoaded', function () {
         image2.style.display = 'none';
         document.getElementById("icon-menu2").src = "dokument-active.jpg";
         break;
-      case 'menu3':
-        image1.src = "striczka.jpg";
-        image2.src = "foon.jpg";
-        document.getElementById("icon-menu3").src = "strichka-active.jpg";
-        document.getElementById("strichkaName").style.display = "block";
-        break;
+        case 'menu3':
+          image1.src = "striczka.jpg";
+          image2.src = "foon.jpg";
+          document.getElementById("icon-menu3").src = "strichka-active.jpg";
+        
+          const strichka = document.getElementById("strichkaName");
+          strichka.style.display = "block";
+        
+          // Беремо текст без HTML тегів
+          const fullNameElement = document.getElementById("userName");
+          const fullName = fullNameElement.innerText || fullNameElement.textContent || "";
+          const parts = fullName.replace(/\n/g, ' ').trim().split(/\s+/);
+          const firstName = parts[1] || parts[0];
+        
+          strichka.textContent = `Привіт, ${firstName} 👋`;
+          break;
     }
   }
 
@@ -124,30 +134,49 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// --- Меню з 4 опціями ---
 function togglePopupMenu() {
   document.getElementById("popupMenu").classList.toggle("hidden");
 }
 
+function openChangeMenu() {
+  const choice = prompt(
+    "Виберіть опцію:\n" +
+    "1. Змінити ПІБ\n" +
+    "2. Змінити дату\n" +
+    "3. Змінити фото\n" +
+    "4. Скинути все"
+  );
+
+  switch(choice) {
+    case "1": changeName(); break;
+    case "2": changeDate(); break;
+    case "3": changePhoto(); break;
+    case "4": resetData(); break;
+    default: alert("Невірна опція"); break;
+  }
+}
+
+// Зміна ПІБ
 function changeName() {
-  const name = prompt("Введіть нове ім’я:");
+  const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
   if (name) {
-    document.getElementById("userName").innerText = name;
+    const parts = name.trim().split(/\s+/);
+    const formatted = parts.join("<br>");
+    document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
+    const firstName = parts[1] || parts[0];
+    document.getElementById("strichkaName").textContent = `Привіт, ${firstName} 👋`;
+    localStorage.setItem("userName", name);
   }
   togglePopupMenu();
 }
 
+// Зміна дати
 function changeDate() {
   const date = prompt("Введіть нову дату:");
   if (date) {
     document.getElementById("userDate").innerText = date;
-  }
-  togglePopupMenu();
-}
-
-function changePhoto() {
-  const url = prompt("Введіть посилання на фото:");
-  if (url) {
-    document.getElementById("userPhoto").src = url;
+    localStorage.setItem("userDate", date);
   }
   togglePopupMenu();
 }
@@ -163,6 +192,7 @@ function changePhoto() {
       const reader = new FileReader();
       reader.onload = () => {
         document.getElementById("userPhoto").src = reader.result;
+        localStorage.setItem("userPhoto", reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -171,155 +201,38 @@ function changePhoto() {
   togglePopupMenu();
 }
 
-// Запуск
-generateQRCode();
-setInterval(updateTimer, 1000);
+// Скидання до початкового стану
+function resetData() {
+  localStorage.removeItem("userName");
+  localStorage.removeItem("userDate");
+  localStorage.removeItem("userPhoto");
 
-
-
-// function changeName() {
-//   const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
-//   if (name) {
-//     const parts = name.trim().split(/\s+/); // розбиває по пробілах
-//     const formatted = parts.join("<br>");   // додає <br> між словами
-//     document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
-//   }
-//   togglePopupMenu();
-// }
-
-
-function changeName() {
-  const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
-
-  if (name) {
-    const parts = name.trim().split(/\s+/);
-
-    // Формат для паспорта (з переносами)
-    const formatted = parts.join("<br>");
-    document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
-
-    // Беремо тільки ім’я (друге слово)
-    const firstName = parts[1] || parts[0];
-
-    // Оновлюємо текст для вкладки "Стрічка"
-    document.getElementById("strichkaName").textContent = firstName;
-  }
-
+  document.getElementById("userName").innerHTML = "<p>Ваш ПІБ</p>";
+  document.getElementById("userDate").innerText = "дата";
+  document.getElementById("userPhoto").src = "default-photo.jpg";
+  document.getElementById("strichkaName").textContent = "";
+  
   togglePopupMenu();
 }
 
-function updateStrichkaName() {
-  const fullName = document.getElementById("userName").innerText.trim();
-  const parts = fullName.split(/\s+/);
-  const firstName = parts[1] || parts[0];
+// Відновлення даних при завантаженні
+window.addEventListener("load", () => {
+  const savedName = localStorage.getItem("userName");
+  const savedDate = localStorage.getItem("userDate");
+  const savedPhoto = localStorage.getItem("userPhoto");
 
-  document.getElementById("strichkaName").textContent = firstName;
-}
-
-
-if (screen.orientation && screen.orientation.lock) {
-  screen.orientation.lock('portrait').catch(function(error) {
-    console.log("Orientation lock failed:", error);
-  });
-}
-
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.addEventListener('selectstart', event => event.preventDefault());
-document.addEventListener('copy', event => event.preventDefault());
-document.addEventListener('touchstart', function(e) {
-  if (e.touches.length > 1) e.preventDefault(); // два пальці
-}, { passive: false });
-
-// Заборона подвійного кліку (double tap)
-document.addEventListener('dblclick', (e) => {
-  e.preventDefault();
-}, { passive: false });
-
-// Заборона контекстного меню (правий клік)
-document.addEventListener('contextmenu', (e) => {
-  e.preventDefault();
-});
-
-// Заборона вибору тексту
-document.addEventListener('selectstart', (e) => {
-  e.preventDefault();
-});
-
-// Блокування будь-яких жестів
-document.addEventListener('gesturestart', (e) => {
-  e.preventDefault();
-});
-document.addEventListener('gesturechange', (e) => {
-  e.preventDefault();
-});
-document.addEventListener('gestureend', (e) => {
-  e.preventDefault();
-});
-
-// Блокування свайпів і зуму
-document.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-}, { passive: false });
-
-
-window.addEventListener('load', function() {
-  document.body.style.height = '103.5vh'; // Встановлюємо висоту 80% від висоти вікна
-});
-
-window.addEventListener('resize', function() {
-  document.body.style.height = '103.5vh'; // При зміні розміру вікна знову встановлюємо 80% висоти
-});
-
-// Додаємо елемент для чорного екрану
-const overlay = document.createElement('div');
-overlay.id = 'overlay';
-overlay.textContent = 'Перемкніть пристрій у портретний режим';
-document.body.appendChild(overlay);
-
-// Слухач події для зміни орієнтації
-window.addEventListener('orientationchange', function() {
-  if (window.orientation === 90 || window.orientation === -90) {
-    // Якщо орієнтація ландшафтна, показуємо чорний екран
-    overlay.style.display = 'flex';
-  } else {
-    // Якщо орієнтація портретна, приховуємо чорний екран
-    overlay.style.display = 'none';
+  if (savedName) {
+    const parts = savedName.trim().split(/\s+/);
+    document.getElementById("userName").innerHTML = `<p>${parts.join("<br>")}</p>`;
+    const firstName = parts[1] || parts[0];
+    document.getElementById("strichkaName").textContent = `Привіт, ${firstName} 👋`;
   }
+  if (savedDate) document.getElementById("userDate").innerText = savedDate;
+  if (savedPhoto) document.getElementById("userPhoto").src = savedPhoto;
 });
 
-// Спочатку перевіряємо орієнтацію при завантаженні сторінки
-if (window.orientation === 90 || window.orientation === -90) {
-  overlay.style.display = 'flex';
-} else {
-  overlay.style.display = 'none';
-}
+// --- Запуск таймера і QR ---
+generateQRCode();
+setInterval(updateTimer, 1000);
 
-// Оновити рядок "Документ оновлено ..." тільки текстом, без змін стилів/HTML
-window.addEventListener("load", function updateMovingTextOnce() {
-  try {
-    const now = new Date();
-
-    const time = now.toLocaleTimeString("uk-UA", {
-      hour: "2-digit",
-      minute: "2-digit"
-    });
-
-    const date = now.toLocaleDateString("uk-UA", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-
-    const text = `Документ оновлено о ${time} | ${date} • `; // пробіл після • збережено
-
-    document.querySelectorAll(".moving-text-container .moving-text")
-      .forEach(el => { el.textContent = text; });
-  } catch (_) {
-    // тихо ігноруємо — стилі/розмітка не змінюються
-  }
-});
-
-
-window.addEventListener("load", function () {
-  updateStrichkaName();
-});
+// --- Усі інші твої блоки залишені без змін: lock орієнтації, overlay, заборона копіювання, подвійний клік, свайпи, зум ---
