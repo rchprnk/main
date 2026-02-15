@@ -273,12 +273,10 @@ document.addEventListener('wheel', function(e) {
 }, { passive: false });
 
 
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+window.addEventListener('load', () => {
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
-if (!isStandalone) {
-    // Показати інструкцію додавання на головний екран
-    document.getElementById('installInstruction').style.display = 'block';
-} else {
-    // Сховати інструкцію, якщо PWA запущено
-    document.getElementById('installInstruction').style.display = 'none';
-}
+  if (!isStandalone) {
+    document.getElementById('installInstruction').style.display = 'flex';
+  }
+});
