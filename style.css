@@ -553,11 +553,11 @@ body {
   }
 }
 
-/* 15 Pro Max залишаємо недоторканим, бо він точно 430x932px
+/* 15 Pro Max залишаємо недоторканим, бо він точно 430x932px */
 #strichkaName {
   top: 103px;
   font-size: 32px;
-} */
+} 
 
 /* iPhone 12 Pro (390 x 844, DPR 3) */
 @media only screen 
