@@ -313,36 +313,3 @@ document.addEventListener('wheel', function(e) {
 
 
 
-const pinInput = document.getElementById("pinInput");
-const pinButton = document.getElementById("pinButton");
-const loginScreen = document.getElementById("loginScreen");
-const appContent = document.getElementById("appContent");
-
-const savedPin = localStorage.getItem("userPin");
-
-// Підтвердження паролю або створення нового
-pinButton.addEventListener("click", () => {
-  const pin = pinInput.value.trim();
-
-  // Перевірка формату
-  if (pin.length !== 4 || !/^\d{4}$/.test(pin)) {
-    alert("Пароль повинен містити 4 цифри!");
-    return;
-  }
-
-  if (!savedPin) {
-    // Перший раз – зберігаємо пароль
-    localStorage.setItem("userPin", pin);
-    alert("Пароль збережено! Тепер можна входити за паролем.");
-  } else {
-    // Перевірка існуючого паролю
-    if (pin !== savedPin) {
-      alert("Невірний пароль!");
-      return;
-    }
-  }
-
-  // При успішному введенні паролю показуємо основний контент
-  loginScreen.style.display = "none";
-  appContent.style.display = "block";
-});
