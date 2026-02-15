@@ -7,31 +7,30 @@
 
   if (!isPWA()) {
 
-    document.documentElement.innerHTML = `
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PWA Only</title>
-      </head>
-      <body style="
-        margin:0;
+    document.body.innerHTML = `
+      <div style="
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
         height:100vh;
+        background:#ffffff;
         display:flex;
         justify-content:center;
         align-items:center;
-        background:#ffffff;
-        font-family:'e-Ukraine', Arial, sans-serif;
+        flex-direction:column;
         text-align:center;
+        font-family:'e-Ukraine', Arial, sans-serif;
         padding:20px;
-        box-sizing:border-box;">
-        <div>
-          <h2>Встановіть додаток на iPhone</h2>
-          <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-          <img src="pwaimage.png" style="max-width:300px;margin-top:20px;">
-        </div>
-      </body>
+        z-index:999999;">
+        
+        <h2>Встановіть додаток на iPhone</h2>
+        <p>Натисніть «Поділитися» у Safari та оберіть «Додати на головний екран».</p>
+        <img src="pwaimage.png" style="max-width:300px;margin-top:20px;">
+      </div>
     `;
 
-    return; // 🔥 зупиняємо весь інший JS
+    return;
   }
 
 })();
