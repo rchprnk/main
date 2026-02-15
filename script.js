@@ -5,7 +5,6 @@
   }
 
   if (!isPWA()) {
-    // Створюємо overlay
     const overlay = document.createElement('div');
     overlay.id = 'pwa-overlay';
     overlay.style.position = 'fixed';
@@ -18,19 +17,20 @@
     overlay.style.display = 'flex';
     overlay.style.flexDirection = 'column';
     overlay.style.justifyContent = 'center';
-    overlay.style.alignItems = 'center';
-    overlay.style.textAlign = 'center';
+    overlay.style.alignItems = 'flex-start'; // зсунули вліво
+    overlay.style.textAlign = 'left';
     overlay.style.fontFamily = "'e-Ukraine', Arial, sans-serif";
-    overlay.style.padding = '20px';
+    overlay.style.padding = '40px'; // трохи більше паддінгу
     overlay.innerHTML = `
-      <h2>Встановіть додаток на iPhone</h2>
-      <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-      <img src="pwaimage.png" style="max-width:450px;margin-top:20px;">
+      <div style="max-width: 400px;"> <!-- обмежуємо ширину -->
+        <h2>Встановіть додаток на iPhone</h2>
+        <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+        <img src="pwaimage.png" style="max-width:100%;margin-top:20px;">
+      </div>
     `;
 
     document.body.appendChild(overlay);
 
-    // При бажанні можна зупинити події під overlay
     overlay.addEventListener('click', e => e.stopPropagation());
     overlay.addEventListener('touchstart', e => e.stopPropagation());
   }
