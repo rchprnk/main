@@ -11,6 +11,35 @@
   <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="DiiaLogo.png">
   <title>Passport UI Clone</title>
+  <script>
+    function isPWA() {
+      return window.navigator.standalone === true || 
+             window.matchMedia('(display-mode: standalone)').matches;
+    }
+  
+    if (!isPWA()) {
+      document.write(`
+        <style>
+          body {
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:black;
+            color:white;
+            font-family:sans-serif;
+            text-align:center;
+          }
+        </style>
+        <div>
+          <h2>Відкрийте додаток як PWA</h2>
+          <p>Додайте на головний екран</p>
+        </div>
+      `);
+      throw new Error("Not in PWA mode");
+    }
+  </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <div class="container">
@@ -141,6 +170,5 @@
       </div>
 
         <script src="script.js"></script>
-
 </body>
 </html>
