@@ -1,40 +1,40 @@
-(function () {
+// (function () {
 
-  function isPWA() {
-    return window.navigator.standalone === true ||
-           window.matchMedia('(display-mode: standalone)').matches;
-  }
+//   function isPWA() {
+//     return window.navigator.standalone === true ||
+//            window.matchMedia('(display-mode: standalone)').matches;
+//   }
 
-  if (!isPWA()) {
+//   if (!isPWA()) {
 
-    document.documentElement.innerHTML = `
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PWA Only</title>
-      </head>
-      <body style="
-        margin:0;
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background:#ffffff;
-        font-family:'e-Ukraine', Arial, sans-serif;
-        text-align:center;
-        padding:20px;
-        box-sizing:border-box;">
-        <div>
-          <h2>Встановіть додаток на iPhone</h2>
-          <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-          <img src="pwaimage.png" style="max-width:450px;margin-top:20px;">
-        </div>
-      </body>
-    `;
+//     document.documentElement.innerHTML = `
+//       <head>
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <title>PWA Only</title>
+//       </head>
+//       <body style="
+//         margin:0;
+//         height:100vh;
+//         display:flex;
+//         justify-content:center;
+//         align-items:center;
+//         background:#ffffff;
+//         font-family:'e-Ukraine', Arial, sans-serif;
+//         text-align:center;
+//         padding:20px;
+//         box-sizing:border-box;">
+//         <div>
+//           <h2>Встановіть додаток на iPhone</h2>
+//           <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+//           <img src="pwaimage.png" style="max-width:450px;margin-top:20px;">
+//         </div>
+//       </body>
+//     `;
 
-    return; // 🔥 зупиняємо весь інший JS
-  }
+//     return; // 🔥 зупиняємо весь інший JS
+//   }
 
-})();
+// })();
 
 let countdown = 180;
 
