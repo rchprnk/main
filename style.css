@@ -38,7 +38,8 @@ html, body {
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
-  touch-action: manipulation;
+  touch-action: manipulation;  /* дозволяє тільки tap, swipe, блокує pinch/zoom */
+  overscroll-behavior: none;  /* блокує прокрутку “з-за меж” */
   background: radial-gradient(circle, #FFFACD 30%, #ADD8E6 60%, #D8BFD8 100%);
   font-family: 'e-Ukraine', Arial, sans-serif;
   

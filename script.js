@@ -264,3 +264,10 @@ window.addEventListener("load", () => {
     strichka.style.display = "block";
   });
 });
+
+document.addEventListener('gesturestart', function (e) {
+  e.preventDefault();  // блокує pinch на iOS
+});
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) e.preventDefault(); // блокує zoom через ctrl+колесо на ПК
+}, { passive: false });
