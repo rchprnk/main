@@ -369,3 +369,30 @@ faceButton.addEventListener("click", async () => {
     alert("Face ID не вдалося активувати");
   }
 });
+
+
+// Перевіряємо підтримку WebAuthn
+if (window.PublicKeyCredential) {
+  document.getElementById('faceButton').style.display = 'block';
+
+  document.getElementById('faceButton').addEventListener('click', async () => {
+      try {
+          const assertion = await navigator.credentials.get({
+              publicKey: {
+                  challenge: new Uint8Array([/* сервер надсилає challenge */]),
+                  timeout: 60000,
+                  userVerification: "required"
+              }
+          });
+          // Тут можна перевірити на сервері, що аутентифікація пройшла
+          alert("Face ID успішно пройдено!");
+          document.getElementById('loginScreen').style.display = 'none';
+          document.getElementById('appContent').style.display = 'block';
+      } catch (err) {
+          console.error(err);
+          alert("Face ID не пройшов.");
+      }
+  });
+} else {
+  console.log("Face ID / Touch ID не підтримується цим браузером");
+}
