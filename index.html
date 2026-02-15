@@ -123,23 +123,102 @@
       <img id="imageDisplay2" class="image"/>
 
 
-            <!-- Початковий екран -->
-      <div id="loginScreen">
-        <div class="loginCard">
-          <h2 id="loginTitle">Вітаємо!</h2>
-          <p id="loginText">Придумайте 4-значний пароль</p>
-          
-          <input type="password" id="pinInput" maxlength="4" pattern="\d*" inputmode="numeric" placeholder="••••">
-          <button id="pinButton">Підтвердити</button>
-          
-          <button id="faceButton" style="display:none;">Використати Face ID</button>
-        </div>
-      </div>
+           <!-- Початковий екран -->
+<div id="loginScreen">
+  <div class="loginCard">
+    <h2 id="loginTitle">Вітаємо!</h2>
+    <p id="loginText">Придумайте 4-значний пароль</p>
 
-      <div id="appContent" style="display:none;">
-        <!-- основний контент програми -->
-      </div>
+    <!-- Кружечки замість input -->
+    <div class="dots" id="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
 
+    <!-- Кнопки PIN -->
+    <div class="keypad">
+      <button class="key">1</button>
+      <button class="key">2</button>
+      <button class="key">3</button>
+
+      <button class="key">4</button>
+      <button class="key">5</button>
+      <button class="key">6</button>
+
+      <button class="key">7</button>
+      <button class="key">8</button>
+      <button class="key">9</button>
+
+      <!-- Face ID -->
+      <button class="key special" id="faceButton" style="display:none;">
+        <svg class="face-icon" viewBox="0 0 100 100" fill="none" stroke="black" stroke-width="6" stroke-linecap="round">
+          <path d="M20 35V20H35"/>
+          <path d="M65 20H80V35"/>
+          <path d="M80 65V80H65"/>
+          <path d="M35 80H20V65"/>
+          <circle cx="50" cy="50" r="15"/>
+        </svg>
+      </button>
+
+      <button class="key">0</button>
+
+      <button class="key special delete">⌫</button>
+    </div>
+  </div>
+</div>
+
+<div id="appContent" style="display:none;">
+  <!-- основний контент програми -->
+</div>
+
+<script>
+let code = "";
+const dots = document.querySelectorAll(".dot");
+const keys = document.querySelectorAll(".key");
+const container = document.querySelector(".dots");
+const loginScreen = document.getElementById("loginScreen");
+const appContent = document.getElementById("appContent");
+
+keys.forEach(key => {
+  key.addEventListener("click", () => {
+    if (key.classList.contains("delete")) {
+      code = code.slice(0, -1);
+      updateDots();
+      return;
+    }
+
+    if (key.classList.contains("special")) return;
+
+    if (code.length < 4) {
+      code += key.textContent;
+      updateDots();
+    }
+
+    if (code.length === 4) {
+      setTimeout(() => {
+        if (code === "1234") {
+          // Код вірний → показати основний контент
+          loginScreen.style.display = "none";
+          appContent.style.display = "block";
+        } else {
+          container.classList.add("shake");
+          setTimeout(() => { container.classList.remove("shake"); }, 300);
+        }
+        code = "";
+        updateDots();
+      }, 200);
+    }
+  });
+});
+
+function updateDots() {
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index < code.length);
+  });
+}
+</script>
         <script src="script.js"></script>
 </body>
 </html>
