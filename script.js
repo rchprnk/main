@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const image2 = document.getElementById("imageDisplay2");
 
   function changeImage(menu) {
+    document.getElementById("strichkaName").style.display = "none";
     document.getElementById("icon-menu").src = "menu.jpg";
     document.getElementById("icon-menu1").src = "servis.jpg";
     document.getElementById("icon-menu2").src = "dokument.jpg";
@@ -82,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         image1.src = "striczka.jpg";
         image2.src = "foon.jpg";
         document.getElementById("icon-menu3").src = "strichka-active.jpg";
+        document.getElementById("strichkaName").style.display = "block";
         break;
     }
   }
@@ -188,21 +190,32 @@ setInterval(updateTimer, 1000);
 
 function changeName() {
   const name = prompt("Введіть новий ПІБ (наприклад: Чепорнюк Роман Сергійович):");
+
   if (name) {
     const parts = name.trim().split(/\s+/);
 
-    // В документі (з <br>)
+    // Формат для паспорта (з переносами)
     const formatted = parts.join("<br>");
     document.getElementById("userName").innerHTML = `<p>${formatted}</p>`;
 
     // Беремо тільки ім’я (друге слово)
     const firstName = parts[1] || parts[0];
 
-    // Виводимо у вкладці "Стрічка"
+    // Оновлюємо текст для вкладки "Стрічка"
     document.getElementById("strichkaName").textContent = firstName;
   }
+
   togglePopupMenu();
 }
+
+function updateStrichkaName() {
+  const fullName = document.getElementById("userName").innerText.trim();
+  const parts = fullName.split(/\s+/);
+  const firstName = parts[1] || parts[0];
+
+  document.getElementById("strichkaName").textContent = firstName;
+}
+
 
 if (screen.orientation && screen.orientation.lock) {
   screen.orientation.lock('portrait').catch(function(error) {
@@ -304,4 +317,9 @@ window.addEventListener("load", function updateMovingTextOnce() {
   } catch (_) {
     // тихо ігноруємо — стилі/розмітка не змінюються
   }
+});
+
+
+window.addEventListener("load", function () {
+  updateStrichkaName();
 });
