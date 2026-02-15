@@ -1,39 +1,39 @@
 (function () {
-
   function isPWA() {
     return window.navigator.standalone === true ||
            window.matchMedia('(display-mode: standalone)').matches;
   }
 
   if (!isPWA()) {
-
-    document.documentElement.innerHTML = `
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PWA Only</title>
-      </head>
-      <body style="
-        margin:0;
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background:#ffffff;
-        font-family:'e-Ukraine', Arial, sans-serif;
-        text-align:center;
-        padding:20px;
-        box-sizing:border-box;">
-        <div>
-          <h2>Встановіть додаток на iPhone</h2>
-          <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
-          <img src="pwaimage.png" style="max-width:450px;margin-top:20px;">
-        </div>
-      </body>
+    // Створюємо overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'pwa-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100vh';
+    overlay.style.background = '#ffffff';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.flexDirection = 'column';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.textAlign = 'center';
+    overlay.style.fontFamily = "'e-Ukraine', Arial, sans-serif";
+    overlay.style.padding = '20px';
+    overlay.innerHTML = `
+      <h2>Встановіть додаток на iPhone</h2>
+      <p>Натисніть <strong>«Поділитися»</strong> у Safari та оберіть <strong>«Додати на головний екран»</strong>.</p>
+      <img src="pwaimage.png" style="max-width:450px;margin-top:20px;">
     `;
 
-    return; // 🔥 зупиняємо весь інший JS
-  }
+    document.body.appendChild(overlay);
 
+    // При бажанні можна зупинити події під overlay
+    overlay.addEventListener('click', e => e.stopPropagation());
+    overlay.addEventListener('touchstart', e => e.stopPropagation());
+  }
 })();
 
 let countdown = 180;
