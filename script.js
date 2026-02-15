@@ -207,9 +207,9 @@ function resetData() {
   localStorage.removeItem("userDate");
   localStorage.removeItem("userPhoto");
 
-  document.getElementById("userName").innerHTML = "<p>Ваш ПІБ</p>";
-  document.getElementById("userDate").innerText = "дата";
-  document.getElementById("userPhoto").src = "default-photo.jpg";
+  document.getElementById("userName").innerHTML = "<p>Прізвище<br>Ім'я<br>ПоБатькові</p>";
+  document.getElementById("userDate").innerText = "ВВЕДІТЬ ДАТУ!";
+  document.getElementById("userPhoto").src = "ВСТАВТЕ ФОТО!";
   document.getElementById("strichkaName").textContent = "";
   
   togglePopupMenu();
