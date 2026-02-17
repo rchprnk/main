@@ -567,7 +567,7 @@ body {
 
 
 /* iPhone 16 Pro (402px) */
-@media (min-width: 394px) and (max-width: 402px) {
+@media (min-width: 430px) and (max-width: 932px) {
 
   .container { height: 99%; }
   .document { height: 61%; }
@@ -594,9 +594,15 @@ body {
   .photo4 { margin-left: 24px; }
 
   .moving-bar {
-    top: 372px;
-    width: 366px;
-    height: 21px;
+    width: 100%;
+  background: linear-gradient(90deg, #a3ed96, #8fcfce);
+  position: absolute;
+  bottom: 111px;
+  left: 0;
+  right: 40px;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
   }
 
   .moving-text {
@@ -660,9 +666,15 @@ body {
   .photo4 { margin-left: 24px; }
 
   .moving-bar {
-    top: 372px;
-    width: 366px;
-    height: 21px;
+  width: 100%;
+  background: linear-gradient(90deg, #a3ed96, #8fcfce);
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 40px;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
   }
 
   .moving-text {
@@ -676,7 +688,7 @@ body {
     left: auto;
     font-size: 27px;
     position: absolute;
-    bottom: 3px;
+    bottom: 5px;
   }
 
   #imageDisplay2 {
