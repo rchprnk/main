@@ -614,13 +614,13 @@ body {
 
   .nameMain {
     left: auto;
-    font-size: 27px;
+    font-size: 29px;
     position: absolute;
-    bottom: 3px;
+    bottom: 5px;
   }
 
   #imageDisplay2 {
-    top: -20px;
+    top: -2px;
     width: 120%;
     position: absolute;
   }
