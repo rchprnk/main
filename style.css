@@ -420,22 +420,15 @@ body {
   to { transform: translateY(0); }
 }
 
-@media only screen 
-  and (device-width: 430px) 
-  and (device-height: 932px) 
-  and (-webkit-device-pixel-ratio: 3) {
+/* iPhone 13 mini (375px) */
+@media (max-width: 375px) {
 
-  .container {
-    height: 99%; 
-  }
-
-  .document {
-    height: 61%; 
-  }
+  .container { height: 99%; }
+  .document { height: 61%; }
 
   .photo {
     top: 7px;
-    width: 150px; 
+    width: 150px;
     height: 210px;
   }
 
@@ -444,86 +437,326 @@ body {
     height: 100%;
     object-fit: cover;
   }
-.info{
-  top: 84px;
-}
+
+  .info { top: 84px; }
+
   .info p {
     margin-left: 12px;
-    font-size: 15px; 
+    font-size: 15px;
   }
 
-  .photo4{
-    margin-left: 24px;
-  }
+  .photo4 { margin-left: 24px; }
 
-  .moving-bar{
+  .moving-bar {
     top: 372px;
-    width: 366px;  
-    height: 21px;  
+    width: 366px;
+    height: 21px;
   }
 
-  .moving-text{
-    width: 286px;  
-    font-size: 15px;  
+  .moving-text {
+    width: 286px;
+    font-size: 15px;
   }
 
-  .dots{
-    bottom: 170px;
-  }
+  .dots { bottom: 170px; }
 
   .nameMain {
-    font-size: 27px;
-    position: absolute;
-    top: auto;
     left: auto;
-    bottom: 3px; 
-    cursor: grab;
+    font-size: 24px;
+    position: absolute;
+    bottom: -7px;
   }
 
   #imageDisplay2 {
-    top: -20px;            /* трошки вгору */
+    top: -20px;
     width: 120%;
     position: absolute;
   }
 
   #imageDisplay1 {
-    top: 58px;            /* трошки вгору */
+    top: 58px;
     width: 100%;
     position: absolute;
   }
 
-}
-
-/* Для всіх екранів менше ніж 430px по ширині */
-@media (max-width: 429px) {
   #strichkaName {
-      top: 90px; /* піднімаємо трохи */
-      font-size: 28px;
+    top: 90px;
+    font-size: 28px;
   }
 }
 
-/* Для всіх екранів між 430 і 480px */
-@media (min-width: 430px) and (max-width: 480px) {
+
+
+/* iPhone 14 Pro (393px) */
+@media (min-width: 376px) and (max-width: 393px) {
+
+  .container { height: 99%; }
+  .document { height: 59%; }
+
+  .photo {
+    top: 7px;
+    width: 150px;
+    height: 210px;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info { top: 84px; }
+
+  .info p {
+    margin-left: 12px;
+    font-size: 15px;
+  }
+
+  .photo4 { margin-left: 24px; }
+
+  .moving-bar {
+    width: 100%;
+  background: linear-gradient(90deg, #a3ed96, #8fcfce);
+  position: absolute;
+  bottom: 111px;
+  left: 0;
+  right: 40px;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  }
+
+  .moving-text {
+    width: 286px;
+    font-size: 15px;
+  }
+
+  .dots { bottom: 170px; }
+
+  .nameMain {
+    left: auto;
+    font-size: 27px;
+    position: absolute;
+    bottom: 3px;
+  }
+
+  #imageDisplay2 {
+    top: -20px;
+    width: 120%;
+    position: absolute;
+  }
+
+  #imageDisplay1 {
+    top: 58px;
+    width: 100%;
+    position: absolute;
+  }
+
   #strichkaName {
-      top: 95px;
-      font-size: 30px;
+    top: 95px;
+    font-size: 30px;
   }
 }
 
-/* 15 Pro Max залишаємо недоторканим, бо він точно 430x932px */
-#strichkaName {
-  top: 103px;
-  font-size: 32px;
-} 
 
-/* iPhone 12 Pro (390 x 844, DPR 3) */
-@media only screen 
-  and (device-width: 390px) 
-  and (device-height: 844px) 
-  and (-webkit-device-pixel-ratio: 3) {
 
-    #strichkaName {
-        top: -614px;
-        font-size: 30px;
+/* iPhone 16 Pro (402px) */
+@media (min-width: 394px) and (max-width: 402px) {
+
+  .container { height: 99%; }
+  .document { height: 61%; }
+
+  .photo {
+    top: 7px;
+    width: 150px;
+    height: 210px;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info { top: 84px; }
+
+  .info p {
+    margin-left: 12px;
+    font-size: 15px;
+  }
+
+  .photo4 { margin-left: 24px; }
+
+  .moving-bar {
+    top: 372px;
+    width: 366px;
+    height: 21px;
+  }
+
+  .moving-text {
+    width: 286px;
+    font-size: 15px;
+  }
+
+  .dots { bottom: 170px; }
+
+  .nameMain {
+    left: auto;
+    font-size: 27px;
+    position: absolute;
+    bottom: 3px;
+  }
+
+  #imageDisplay2 {
+    top: -20px;
+    width: 120%;
+    position: absolute;
+  }
+
+  #imageDisplay1 {
+    top: 58px;
+    width: 100%;
+    position: absolute;
+  }
+
+  #strichkaName {
+    top: 100px;
+    font-size: 31px;
+  }
+}
+
+
+/* iPhone 15 Pro Max */
+@media (min-width: 403px) and (max-width: 430px) {
+
+  .container { height: 99%; }
+  .document { height: 61%; }
+
+  .photo {
+    top: 7px;
+    width: 150px;
+    height: 210px;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info { top: 84px; }
+
+  .info p {
+    margin-left: 12px;
+    font-size: 15px;
+  }
+
+  .photo4 { margin-left: 24px; }
+
+  .moving-bar {
+    top: 372px;
+    width: 366px;
+    height: 21px;
+  }
+
+  .moving-text {
+    width: 286px;
+    font-size: 15px;
+  }
+
+  .dots { bottom: 170px; }
+
+  .nameMain {
+    left: auto;
+    font-size: 27px;
+    position: absolute;
+    bottom: 3px;
+  }
+
+  #imageDisplay2 {
+    top: -20px;
+    width: 120%;
+    position: absolute;
+  }
+
+  #imageDisplay1 {
+    top: 58px;
+    width: 100%;
+    position: absolute;
+  }
+
+  #strichkaName {
+    top: 103px;
+    font-size: 32px;
+  }
+}
+
+
+/* iPhone 16 Pro Max (440px) */
+@media (min-width: 431px) and (max-width: 440px) {
+
+  @media (min-width: 403px) and (max-width: 430px) {
+
+    .container { height: 99%; }
+    .document { height: 61%; }
+  
+    .photo {
+      top: 7px;
+      width: 150px;
+      height: 210px;
     }
+  
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .info { top: 84px; }
+  
+    .info p {
+      margin-left: 12px;
+      font-size: 15px;
+    }
+  
+    .photo4 { margin-left: 24px; }
+  
+    .moving-bar {
+      top: 372px;
+      width: 366px;
+      height: 21px;
+    }
+  
+    .moving-text {
+      width: 286px;
+      font-size: 15px;
+    }
+  
+    .dots { bottom: 170px; }
+  
+    .nameMain {
+      left: auto;
+      font-size: 27px;
+      position: absolute;
+      bottom: 3px;
+    }
+  
+    #imageDisplay2 {
+      top: -20px;
+      width: 120%;
+      position: absolute;
+    }
+  
+    #imageDisplay1 {
+      top: 58px;
+      width: 100%;
+      position: absolute;
+    }
+  
+    #strichkaName {
+      top: 103px;
+      font-size: 32px;
+    }
+  }
+
 }
