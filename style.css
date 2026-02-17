@@ -448,9 +448,15 @@ body {
   .photo4 { margin-left: 24px; }
 
   .moving-bar {
-    top: 372px;
-    width: 366px;
-    height: 21px;
+  width: 100%;
+  background: linear-gradient(90deg, #a3ed96, #8fcfce);
+  position: absolute;
+  bottom: 111px;
+  left: 0;
+  right: 40px;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
   }
 
   .moving-text {
@@ -535,9 +541,9 @@ body {
 
   .nameMain {
     left: auto;
-    font-size: 27px;
+    font-size: 24px;
     position: absolute;
-    bottom: 3px;
+    bottom: -7px;
   }
 
   #imageDisplay2 {
