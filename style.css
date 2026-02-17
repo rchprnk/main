@@ -501,8 +501,8 @@ body {
 
   .photo {
     top: 7px;
-    width: 150px;
-    height: 210px;
+    width: 140px;
+    height: 190px;
   }
 
   .photo img {
@@ -521,10 +521,10 @@ body {
   .photo4 { margin-left: 24px; }
 
   .moving-bar {
-    width: 100%;
+  width: 100%;
   background: linear-gradient(90deg, #a3ed96, #8fcfce);
   position: absolute;
-  bottom: 111px;
+  bottom: 120px;
   left: 0;
   right: 40px;
   padding: 5px 0;
@@ -666,15 +666,9 @@ body {
   .photo4 { margin-left: 24px; }
 
   .moving-bar {
-  width: 100%;
-  background: linear-gradient(90deg, #a3ed96, #8fcfce);
-  position: absolute;
-  bottom: 150px;
-  left: 0;
-  right: 40px;
-  padding: 5px 0;
-  overflow: hidden;
-  white-space: nowrap;
+    top: 372px;
+    width: 366px;
+    height: 21px;
   }
 
   .moving-text {
