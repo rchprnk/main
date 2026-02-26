@@ -682,7 +682,7 @@ body {
     left: auto;
     font-size: 29px;
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
   }
 
   #imageDisplay2 {
